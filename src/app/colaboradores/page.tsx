@@ -1,0 +1,62 @@
+import type { Metadata } from "next";
+
+import Container from "@/components/Container";
+import Hero from "@/components/Hero";
+import SectionHeading from "@/components/SectionHeading";
+import { collaborators } from "@/lib/content";
+
+export const metadata: Metadata = {
+  title: "Colaboradores",
+  description:
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Red de colaboradores placeholder del despacho.",
+};
+
+export default function ColaboradoresPage() {
+  return (
+    <>
+      <Hero
+        eyebrow={collaborators.hero.eyebrow}
+        title={collaborators.hero.title}
+        subtitle={collaborators.hero.subtitle}
+      />
+
+      <section className="py-20 sm:py-24">
+        <Container>
+          <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-20">
+            <SectionHeading
+              eyebrow={collaborators.intro.eyebrow}
+              title={collaborators.intro.title}
+            />
+            <div className="space-y-5 text-base text-slate sm:text-lg">
+              {collaborators.intro.paragraphs.map((paragraph, index) => (
+                <p key={index}>{paragraph}</p>
+              ))}
+            </div>
+          </div>
+
+          {/* Rejilla de logos placeholder.
+              TODO: sustituir los monogramas por los logotipos reales. */}
+          <ul className="mt-16 grid grid-cols-2 gap-px border border-navy-100 bg-navy-100 sm:grid-cols-3">
+            {collaborators.items.map((item) => (
+              <li
+                key={item.name}
+                className="group flex flex-col items-center justify-center gap-4 bg-white px-6 py-12 text-center transition-colors duration-300 hover:bg-cream"
+              >
+                <span
+                  aria-hidden="true"
+                  className="flex h-16 w-16 items-center justify-center border border-navy-200 font-serif text-xl tracking-widest text-navy-400 transition-colors duration-300 group-hover:border-gold group-hover:text-gold"
+                >
+                  {item.initials}
+                </span>
+                <span className="font-serif text-lg text-navy">{item.name}</span>
+                <span className="font-sans text-xs tracking-[0.14em] text-slate uppercase">
+                  {item.kind}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </Container>
+      </section>
+    </>
+  );
+}
