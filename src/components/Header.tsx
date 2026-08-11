@@ -28,11 +28,11 @@ export default function Header({ locale, nav, ui }: HeaderProps) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // A partir de `md` la navegación completa sustituye al drawer: si el viewport
-  // cruza el breakpoint (p. ej. al girar el móvil), se cierra para no dejar el
-  // scroll del body bloqueado.
+  // A partir de `navbar` (44rem) la navegación horizontal sustituye al drawer:
+  // si el viewport cruza el breakpoint (al girar el móvil o la tablet), se
+  // cierra para no dejar el scroll del body bloqueado.
   useEffect(() => {
-    const query = window.matchMedia("(min-width: 48rem)");
+    const query = window.matchMedia("(min-width: 44rem)");
     const onChange = (event: MediaQueryListEvent) => {
       if (event.matches) {
         setMenuOpen(false);
@@ -55,8 +55,20 @@ export default function Header({ locale, nav, ui }: HeaderProps) {
   const isActive = (href: string) =>
     href === "/" ? currentPath === "/" : currentPath.startsWith(href);
 
-  const mainLinks = nav.filter((item) => item.href !== "/contacto");
   const contactActive = isActive("/contacto");
+
+  /**
+   * Visibilidad de cada enlace en la barra horizontal:
+   * - «Inicio» solo en escritorio (por debajo, el logo ya lleva a la portada).
+   * - «Contacto» solo en el tramo intermedio; desde `lg` lo asume el botón dorado.
+   */
+  const linkVisibility = (href: string) => {
+    if (href === "/") {
+      return "hidden lg:block";
+    }
+
+    return href === "/contacto" ? "lg:hidden" : "";
+  };
 
   return (
     <header
@@ -67,24 +79,24 @@ export default function Header({ locale, nav, ui }: HeaderProps) {
       }`}
     >
       <Container>
-        <div className="flex h-20 items-center justify-between gap-4 lg:gap-6">
+        <div className="flex h-20 items-center justify-between gap-3 lg:gap-6">
           <Link
             href={localizedHref(locale, "/")}
             onClick={() => setMenuOpen(false)}
             className="group flex shrink-0 flex-col leading-none"
             aria-label={ui.homeLabel}
           >
-            <span className="font-serif text-2xl tracking-wide whitespace-nowrap text-navy md:text-[22px] lg:text-[26px]">
+            <span className="font-serif text-2xl tracking-wide whitespace-nowrap text-navy navbar:text-[21px] lg:text-[26px]">
               Abogados <span className="text-gold">Marina</span>
             </span>
             <span className="mt-1 h-px w-0 bg-gold transition-all duration-300 group-hover:w-full" />
           </Link>
 
-          {/* Navegación de escritorio y tablet (≥ md) */}
-          <nav aria-label={ui.mainNavLabel} className="hidden md:block">
-            <ul className="flex items-center gap-4 lg:gap-8">
-              {mainLinks.map((item) => (
-                <li key={item.href}>
+          {/* Navegación horizontal: tablet en vertical (≥ 704 px) y escritorio */}
+          <nav aria-label={ui.mainNavLabel} className="hidden navbar:block">
+            <ul className="flex items-center gap-3 lg:gap-8">
+              {nav.map((item) => (
+                <li key={item.href} className={linkVisibility(item.href)}>
                   <Link
                     href={localizedHref(locale, item.href)}
                     aria-current={isActive(item.href) ? "page" : undefined}
@@ -103,12 +115,13 @@ export default function Header({ locale, nav, ui }: HeaderProps) {
             </ul>
           </nav>
 
-          <div className="hidden shrink-0 items-center gap-4 md:flex lg:gap-6">
+          <div className="hidden shrink-0 items-center gap-3 navbar:flex lg:gap-6">
             <LocaleSwitcher locale={locale} label={ui.languageLabel} />
+            {/* El CTA dorado solo cabe con holgura en escritorio. */}
             <Link
               href={localizedHref(locale, "/contacto")}
               aria-current={contactActive ? "page" : undefined}
-              className={`inline-flex items-center px-4 py-2.5 font-sans text-xs font-medium tracking-[0.12em] whitespace-nowrap uppercase transition-colors duration-200 lg:px-6 lg:py-3 ${
+              className={`hidden items-center px-4 py-2.5 font-sans text-xs font-medium tracking-[0.12em] whitespace-nowrap uppercase transition-colors duration-200 lg:inline-flex lg:px-6 lg:py-3 ${
                 contactActive
                   ? "bg-navy text-white hover:bg-navy-800"
                   : "bg-gold text-white hover:bg-gold-700"
@@ -118,8 +131,8 @@ export default function Header({ locale, nav, ui }: HeaderProps) {
             </Link>
           </div>
 
-          {/* Selector de idioma + hamburguesa en móvil */}
-          <div className="flex items-center gap-3 md:hidden">
+          {/* Selector de idioma + hamburguesa (móvil y tablets estrechas) */}
+          <div className="flex items-center gap-3 navbar:hidden">
             <LocaleSwitcher locale={locale} label={ui.languageLabel} />
             <button
               type="button"
@@ -143,13 +156,13 @@ export default function Header({ locale, nav, ui }: HeaderProps) {
       <div
         aria-hidden={!menuOpen}
         onClick={() => setMenuOpen(false)}
-        className={`fixed inset-0 top-20 z-40 bg-navy/40 transition-opacity duration-300 md:hidden ${
+        className={`fixed inset-0 top-20 z-40 bg-navy/40 transition-opacity duration-300 navbar:hidden ${
           menuOpen ? "opacity-100" : "pointer-events-none opacity-0"
         }`}
       />
       <div
         id="menu-movil"
-        className={`fixed top-20 right-0 bottom-0 z-50 w-72 max-w-[85vw] overflow-y-auto border-l border-navy-100 bg-white transition-transform duration-300 md:hidden ${
+        className={`fixed top-20 right-0 bottom-0 z-50 w-72 max-w-[85vw] overflow-y-auto border-l border-navy-100 bg-white transition-transform duration-300 navbar:hidden ${
           menuOpen ? "translate-x-0" : "translate-x-full"
         }`}
         inert={!menuOpen}
