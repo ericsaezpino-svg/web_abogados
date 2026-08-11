@@ -1,17 +1,43 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 import Container from "@/components/Container";
 import Hero from "@/components/Hero";
 import SectionHeading from "@/components/SectionHeading";
-import { collaborators } from "@/lib/content";
+import { getContent } from "@/lib/content";
+import { buildAlternates, isLocale } from "@/lib/i18n";
 
-export const metadata: Metadata = {
-  title: "Colaboradores",
-  description:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Red de colaboradores placeholder del despacho.",
-};
+const PATH = "/colaboradores";
 
-export default function ColaboradoresPage() {
+export async function generateMetadata(
+  props: PageProps<"/[locale]/colaboradores">,
+): Promise<Metadata> {
+  const { locale } = await props.params;
+
+  if (!isLocale(locale)) {
+    notFound();
+  }
+
+  const { pageMeta } = getContent(locale);
+
+  return {
+    title: pageMeta.collaborators.title,
+    description: pageMeta.collaborators.description,
+    alternates: buildAlternates(locale, PATH),
+  };
+}
+
+export default async function ColaboradoresPage({
+  params,
+}: PageProps<"/[locale]/colaboradores">) {
+  const { locale } = await params;
+
+  if (!isLocale(locale)) {
+    notFound();
+  }
+
+  const { collaborators } = getContent(locale);
+
   return (
     <>
       <Hero
