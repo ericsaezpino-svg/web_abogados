@@ -7,6 +7,12 @@
 }
 
 @theme {
+  /*
+   * Breakpoint propio de la cabecera: a partir de 704 px la navegación pasa a
+   * horizontal (cubre tablets en vertical, p. ej. 744 px). Por debajo, drawer.
+   */
+  --breakpoint-navbar: 44rem;
+
   /* Institucional */
   --color-navy: #1b2a4a;
   --color-navy-50: #f2f4f8;
