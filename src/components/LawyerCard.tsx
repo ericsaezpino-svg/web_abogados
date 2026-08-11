@@ -17,7 +17,7 @@ export default function LawyerCard({ lawyer, variant = "compact" }: LawyerCardPr
       */}
       <div
         aria-hidden="true"
-        className="relative flex aspect-[4/5] w-full shrink-0 items-center justify-center overflow-hidden bg-navy sm:w-44 lg:w-52"
+        className="relative flex aspect-[4/5] w-40 shrink-0 items-center justify-center overflow-hidden bg-navy sm:w-44 lg:w-52"
       >
         <div className="absolute inset-0 bg-gradient-to-br from-navy-600 to-navy-900" />
         <div className="absolute inset-3 border border-gold/30" />
