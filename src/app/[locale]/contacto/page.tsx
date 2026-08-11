@@ -1,44 +1,70 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { Clock, Mail, MapPin, Phone } from "lucide-react";
 
-import ContactForm from "@/components/ContactForm";
+import ContactChannelCard from "@/components/ContactChannelCard";
 import Container from "@/components/Container";
 import Hero from "@/components/Hero";
 import SectionHeading from "@/components/SectionHeading";
-import { contact, site } from "@/lib/content";
+import { getContent, site } from "@/lib/content";
+import { buildAlternates, isLocale } from "@/lib/i18n";
 
-export const metadata: Metadata = {
-  title: "Contacto",
-  description:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Datos de contacto y formulario placeholder del despacho.",
-};
+const PATH = "/contacto";
 
-const details = [
-  {
-    icon: MapPin,
-    label: "Dirección",
-    value: site.contact.address,
-  },
-  {
-    icon: Phone,
-    label: "Teléfono",
-    value: site.contact.phone,
-    href: site.contact.phoneHref,
-  },
-  {
-    icon: Mail,
-    label: "Email",
-    value: site.contact.email,
-    href: `mailto:${site.contact.email}`,
-  },
-  {
-    icon: Clock,
-    label: "Horario",
-    value: site.contact.schedule,
-  },
-];
+export async function generateMetadata(
+  props: PageProps<"/[locale]/contacto">,
+): Promise<Metadata> {
+  const { locale } = await props.params;
 
-export default function ContactoPage() {
+  if (!isLocale(locale)) {
+    notFound();
+  }
+
+  const { pageMeta } = getContent(locale);
+
+  return {
+    title: pageMeta.contact.title,
+    description: pageMeta.contact.description,
+    alternates: buildAlternates(locale, PATH),
+  };
+}
+
+export default async function ContactoPage({
+  params,
+}: PageProps<"/[locale]/contacto">) {
+  const { locale } = await params;
+
+  if (!isLocale(locale)) {
+    notFound();
+  }
+
+  const { contact, contactInfo } = getContent(locale);
+
+  const details = [
+    {
+      icon: MapPin,
+      label: contactInfo.addressLabel,
+      value: site.contact.address,
+    },
+    {
+      icon: Phone,
+      label: contactInfo.phoneLabel,
+      value: site.contact.phone,
+      href: site.contact.phoneHref,
+    },
+    {
+      icon: Mail,
+      label: contactInfo.emailLabel,
+      value: site.contact.email,
+      href: `mailto:${site.contact.email}`,
+    },
+    {
+      icon: Clock,
+      label: contactInfo.scheduleLabel,
+      value: contactInfo.schedule,
+    },
+  ];
+
   return (
     <>
       <Hero
@@ -47,25 +73,31 @@ export default function ContactoPage() {
         subtitle={contact.hero.subtitle}
       />
 
+      {/* Canales de contacto: agenda, WhatsApp y email. */}
       <section className="py-20 sm:py-24">
         <Container>
-          <div className="grid gap-16 lg:grid-cols-2 lg:gap-20">
-            {/* Formulario */}
-            <div>
-              <SectionHeading
-                eyebrow="Formulario"
-                title={contact.form.title}
-                description={contact.form.description}
-              />
-              <div className="mt-10">
-                <ContactForm />
-              </div>
-            </div>
+          <SectionHeading
+            align="center"
+            eyebrow={contact.channels.eyebrow}
+            title={contact.channels.title}
+            description={contact.channels.description}
+          />
 
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {contact.channels.items.map((channel) => (
+              <ContactChannelCard key={channel.title} channel={channel} />
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="border-t border-navy-100 bg-cream py-20 sm:py-24">
+        <Container>
+          <div className="grid gap-16 lg:grid-cols-2 lg:gap-20">
             {/* Datos de contacto + mapa */}
             <div>
               <SectionHeading
-                eyebrow="Dónde estamos"
+                eyebrow={contact.details.eyebrow}
                 title={contact.details.title}
                 description={contact.details.description}
               />
@@ -94,18 +126,18 @@ export default function ContactoPage() {
                   </li>
                 ))}
               </ul>
+            </div>
 
-              {/* Mapa placeholder.
-                  TODO: sustituir por el embed de la ubicación real del despacho. */}
-              <div className="mt-10 aspect-[4/3] w-full overflow-hidden border border-navy-100 bg-cream">
-                <iframe
-                  src={site.contact.mapEmbedUrl}
-                  title={site.contact.mapLabel}
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="h-full w-full border-0 grayscale-[35%]"
-                />
-              </div>
+            {/* Mapa placeholder.
+                TODO: sustituir por el embed de la ubicación real del despacho. */}
+            <div className="aspect-[4/3] w-full overflow-hidden border border-navy-100 bg-white lg:aspect-auto lg:min-h-[28rem]">
+              <iframe
+                src={site.contact.mapEmbedUrl}
+                title={contactInfo.mapLabel}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="h-full w-full border-0 grayscale-[35%]"
+              />
             </div>
           </div>
         </Container>

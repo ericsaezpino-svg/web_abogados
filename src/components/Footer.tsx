@@ -2,14 +2,16 @@ import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
 
 import Container from "@/components/Container";
-import { legalLinks, nav, site } from "@/lib/content";
+import { getContent, site, socialLinks } from "@/lib/content";
+import { localizedHref, type Locale } from "@/lib/i18n";
 
-const socialLinks = [
-  { label: "LinkedIn", href: "#" },
-  { label: "Instagram", href: "#" },
-];
+type FooterProps = {
+  locale: Locale;
+};
 
-export default function Footer() {
+export default function Footer({ locale }: FooterProps) {
+  const { footer, nav, legalLinks, meta } = getContent(locale);
+
   return (
     <footer className="bg-navy text-navy-100">
       <div aria-hidden="true" className="h-px w-full bg-gold/40" />
@@ -21,8 +23,7 @@ export default function Footer() {
               Abogados <span className="text-gold">Marina</span>
             </p>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-navy-200">
-              {site.tagline}. Lorem ipsum dolor sit amet, consectetur adipiscing elit
-              sed do eiusmod tempor.
+              {meta.tagline}. {footer.blurb}
             </p>
             <ul className="mt-6 flex gap-5">
               {socialLinks.map((item) => (
@@ -38,15 +39,15 @@ export default function Footer() {
             </ul>
           </div>
 
-          <nav aria-label="Navegación del pie">
+          <nav aria-label={footer.navTitle}>
             <h2 className="font-sans text-xs font-semibold tracking-[0.18em] text-gold-300 uppercase">
-              Navegación
+              {footer.navTitle}
             </h2>
             <ul className="mt-6 space-y-3 text-sm">
               {nav.map((item) => (
                 <li key={item.href}>
                   <Link
-                    href={item.href}
+                    href={localizedHref(locale, item.href)}
                     className="transition-colors duration-200 hover:text-gold-300"
                   >
                     {item.label}
@@ -58,7 +59,7 @@ export default function Footer() {
 
           <div>
             <h2 className="font-sans text-xs font-semibold tracking-[0.18em] text-gold-300 uppercase">
-              Contacto
+              {footer.contactTitle}
             </h2>
             <ul className="mt-6 space-y-4 text-sm">
               <li className="flex gap-3">
@@ -95,9 +96,9 @@ export default function Footer() {
             </ul>
           </div>
 
-          <nav aria-label="Información legal">
+          <nav aria-label={footer.legalTitle}>
             <h2 className="font-sans text-xs font-semibold tracking-[0.18em] text-gold-300 uppercase">
-              Legal
+              {footer.legalTitle}
             </h2>
             <ul className="mt-6 space-y-3 text-sm">
               {legalLinks.map((item) => (
@@ -119,7 +120,7 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <Container className="py-6">
           <p className="text-center text-xs tracking-wide text-navy-200">
-            © 2026 {site.name}. Todos los derechos reservados.
+            {footer.rights}
           </p>
         </Container>
       </div>

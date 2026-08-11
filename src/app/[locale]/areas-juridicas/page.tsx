@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { ArrowRight } from "lucide-react";
 
 import Button from "@/components/Button";
@@ -6,15 +7,40 @@ import Container from "@/components/Container";
 import Hero from "@/components/Hero";
 import PracticeAreaCard from "@/components/PracticeAreaCard";
 import SectionHeading from "@/components/SectionHeading";
-import { practiceAreas } from "@/lib/content";
+import { getContent } from "@/lib/content";
+import { buildAlternates, isLocale, localizedHref } from "@/lib/i18n";
 
-export const metadata: Metadata = {
-  title: "Áreas jurídicas",
-  description:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Áreas de práctica placeholder del despacho.",
-};
+const PATH = "/areas-juridicas";
 
-export default function AreasJuridicasPage() {
+export async function generateMetadata(
+  props: PageProps<"/[locale]/areas-juridicas">,
+): Promise<Metadata> {
+  const { locale } = await props.params;
+
+  if (!isLocale(locale)) {
+    notFound();
+  }
+
+  const { pageMeta } = getContent(locale);
+
+  return {
+    title: pageMeta.practiceAreas.title,
+    description: pageMeta.practiceAreas.description,
+    alternates: buildAlternates(locale, PATH),
+  };
+}
+
+export default async function AreasJuridicasPage({
+  params,
+}: PageProps<"/[locale]/areas-juridicas">) {
+  const { locale } = await params;
+
+  if (!isLocale(locale)) {
+    notFound();
+  }
+
+  const { practiceAreas } = getContent(locale);
+
   return (
     <>
       <Hero
@@ -50,12 +76,12 @@ export default function AreasJuridicasPage() {
           <div className="flex flex-col items-start justify-between gap-8 sm:flex-row sm:items-center">
             <SectionHeading
               as="h3"
-              eyebrow="¿No encuentra su caso?"
-              title="Cuéntenos su situación"
-              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt."
+              eyebrow={practiceAreas.cta.eyebrow}
+              title={practiceAreas.cta.title}
+              description={practiceAreas.cta.description}
             />
-            <Button href="/contacto" className="shrink-0">
-              Contactar
+            <Button href={localizedHref(locale, "/contacto")} className="shrink-0">
+              {practiceAreas.cta.action}
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Button>
           </div>

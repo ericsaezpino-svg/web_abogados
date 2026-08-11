@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
+import { notFound } from "next/navigation";
 
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import { site } from "@/lib/content";
+import { getContent, site } from "@/lib/content";
+import { buildAlternates, isLocale, locales } from "@/lib/i18n";
 
-import "./globals.css";
+import "../globals.css";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -20,29 +22,61 @@ const inter = Inter({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: {
-    default: `${site.name} | ${site.tagline}`,
-    template: `%s | ${site.name}`,
-  },
-  description: site.description,
-  openGraph: {
-    type: "website",
-    locale: "es_ES",
-    siteName: site.name,
-    title: `${site.name} | ${site.tagline}`,
-    description: site.description,
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-};
+/** Los tres idiomas se prerrenderizan; cualquier otro segmento devuelve 404. */
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export const dynamicParams = false;
+
+export async function generateMetadata(
+  props: LayoutProps<"/[locale]">,
+): Promise<Metadata> {
+  const { locale } = await props.params;
+
+  if (!isLocale(locale)) {
+    notFound();
+  }
+
+  const content = getContent(locale);
+
+  return {
+    metadataBase: new URL(site.url),
+    title: {
+      default: content.pageMeta.home.title,
+      template: `%s | ${site.name}`,
+    },
+    description: content.meta.description,
+    alternates: buildAlternates(locale, "/"),
+    openGraph: {
+      type: "website",
+      locale,
+      siteName: site.name,
+      title: content.pageMeta.home.title,
+      description: content.meta.description,
+    },
+    robots: {
+      index: true,
+      follow: true,
+    },
+  };
+}
+
+export default async function RootLayout({
+  children,
+  params,
+}: LayoutProps<"/[locale]">) {
+  const { locale } = await params;
+
+  if (!isLocale(locale)) {
+    notFound();
+  }
+
+  const content = getContent(locale);
+
   return (
     <html
-      lang="es"
+      lang={locale}
       data-scroll-behavior="smooth"
       className={`${cormorant.variable} ${inter.variable}`}
     >
@@ -51,13 +85,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           href="#contenido"
           className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] focus:bg-navy focus:px-4 focus:py-2 focus:text-sm focus:text-white"
         >
-          Saltar al contenido
+          {content.ui.skipToContent}
         </a>
-        <Header />
+        <Header locale={locale} nav={content.nav} ui={content.ui} />
         <main id="contenido" className="flex-1">
           {children}
         </main>
-        <Footer />
+        <Footer locale={locale} />
       </body>
     </html>
   );

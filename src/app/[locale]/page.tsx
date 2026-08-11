@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { ArrowRight } from "lucide-react";
 
 import Button from "@/components/Button";
@@ -6,9 +8,36 @@ import Hero from "@/components/Hero";
 import LawyerCard from "@/components/LawyerCard";
 import PracticeAreaCard from "@/components/PracticeAreaCard";
 import SectionHeading from "@/components/SectionHeading";
-import { home, lawyers } from "@/lib/content";
+import { getContent } from "@/lib/content";
+import { buildAlternates, isLocale, localizedHref } from "@/lib/i18n";
 
-export default function HomePage() {
+export async function generateMetadata(
+  props: PageProps<"/[locale]">,
+): Promise<Metadata> {
+  const { locale } = await props.params;
+
+  if (!isLocale(locale)) {
+    notFound();
+  }
+
+  const { pageMeta } = getContent(locale);
+
+  return {
+    title: pageMeta.home.title,
+    description: pageMeta.home.description,
+    alternates: buildAlternates(locale, "/"),
+  };
+}
+
+export default async function HomePage({ params }: PageProps<"/[locale]">) {
+  const { locale } = await params;
+
+  if (!isLocale(locale)) {
+    notFound();
+  }
+
+  const { home, lawyers } = getContent(locale);
+
   return (
     <>
       <Hero
@@ -18,11 +47,15 @@ export default function HomePage() {
         subtitle={home.hero.subtitle}
         actions={
           <>
-            <Button href="/contacto" size="lg">
-              Contactar
+            <Button href={localizedHref(locale, "/contacto")} size="lg">
+              {home.heroActions.primary}
             </Button>
-            <Button href="/areas-juridicas" variant="light" size="lg">
-              Áreas jurídicas
+            <Button
+              href={localizedHref(locale, "/areas-juridicas")}
+              variant="light"
+              size="lg"
+            >
+              {home.heroActions.secondary}
             </Button>
           </>
         }
@@ -47,13 +80,19 @@ export default function HomePage() {
         <Container>
           <SectionHeading
             align="center"
-            eyebrow="El despacho"
-            title="Cómo podemos ayudarle"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore."
+            eyebrow={home.sections.eyebrow}
+            title={home.sections.title}
+            description={home.sections.description}
           />
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {home.sections.map((item) => (
-              <PracticeAreaCard key={item.title} item={item} />
+            {home.sections.items.map((item) => (
+              <PracticeAreaCard
+                key={item.title}
+                item={{
+                  ...item,
+                  href: item.href ? localizedHref(locale, item.href) : undefined,
+                }}
+              />
             ))}
           </div>
         </Container>
@@ -73,8 +112,8 @@ export default function HomePage() {
             ))}
           </div>
           <div className="mt-12">
-            <Button href="/quienes-somos" variant="outline">
-              Conocer el despacho
+            <Button href={localizedHref(locale, "/quienes-somos")} variant="outline">
+              {home.team.cta}
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Button>
           </div>
@@ -91,12 +130,16 @@ export default function HomePage() {
           <div className="flex flex-col items-start justify-between gap-10 lg:flex-row lg:items-center">
             <SectionHeading
               tone="light"
-              eyebrow="Contacto"
+              eyebrow={home.cta.eyebrow}
               title={home.cta.title}
               description={home.cta.description}
             />
-            <Button href="/contacto" size="lg" className="shrink-0">
-              Solicitar cita
+            <Button
+              href={localizedHref(locale, "/contacto")}
+              size="lg"
+              className="shrink-0"
+            >
+              {home.cta.action}
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Button>
           </div>

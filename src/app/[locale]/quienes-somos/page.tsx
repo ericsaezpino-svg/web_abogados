@@ -1,19 +1,45 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 import Container from "@/components/Container";
 import Hero from "@/components/Hero";
 import LawyerCard from "@/components/LawyerCard";
 import SectionHeading from "@/components/SectionHeading";
-import { about, lawyers } from "@/lib/content";
+import { getContent } from "@/lib/content";
+import { buildAlternates, isLocale } from "@/lib/i18n";
 import { icons } from "@/lib/icons";
 
-export const metadata: Metadata = {
-  title: "Quiénes somos",
-  description:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Presentación placeholder del despacho y de sus abogadas.",
-};
+const PATH = "/quienes-somos";
 
-export default function QuienesSomosPage() {
+export async function generateMetadata(
+  props: PageProps<"/[locale]/quienes-somos">,
+): Promise<Metadata> {
+  const { locale } = await props.params;
+
+  if (!isLocale(locale)) {
+    notFound();
+  }
+
+  const { pageMeta } = getContent(locale);
+
+  return {
+    title: pageMeta.about.title,
+    description: pageMeta.about.description,
+    alternates: buildAlternates(locale, PATH),
+  };
+}
+
+export default async function QuienesSomosPage({
+  params,
+}: PageProps<"/[locale]/quienes-somos">) {
+  const { locale } = await params;
+
+  if (!isLocale(locale)) {
+    notFound();
+  }
+
+  const { about, lawyers } = getContent(locale);
+
   return (
     <>
       <Hero
