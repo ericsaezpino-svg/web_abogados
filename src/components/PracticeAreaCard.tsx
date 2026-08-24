@@ -1,11 +1,11 @@
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Check } from "lucide-react";
 
-import type { Feature } from "@/lib/content";
+import type { Feature, PracticeArea } from "@/lib/content";
 import { icons } from "@/lib/icons";
 
 type PracticeAreaCardProps = {
-  item: Feature;
+  item: Feature | PracticeArea;
 };
 
 export default function PracticeAreaCard({ item }: PracticeAreaCardProps) {
@@ -27,7 +27,18 @@ export default function PracticeAreaCard({ item }: PracticeAreaCardProps) {
         ) : null}
       </h3>
 
-      <p className="mt-3 text-base text-slate">{item.description}</p>
+      {"points" in item ? (
+        <ul className="mt-4 space-y-2">
+          {item.points.map((point) => (
+            <li key={point} className="flex items-start gap-2 text-base text-slate">
+              <Check className="mt-1 h-4 w-4 shrink-0 text-gold" aria-hidden="true" />
+              <span>{point}</span>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p className="mt-3 text-base text-slate">{item.description}</p>
+      )}
     </>
   );
 

@@ -58,7 +58,9 @@ export default async function AreasJuridicasPage({
             />
             <div className="space-y-5 text-base text-slate sm:text-lg">
               {practiceAreas.intro.paragraphs.map((paragraph, index) => (
-                <p key={index}>{paragraph}</p>
+                <p key={index} className="text-justify hyphens-auto">
+                  {paragraph}
+                </p>
               ))}
             </div>
           </div>

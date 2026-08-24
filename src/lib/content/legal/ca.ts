@@ -80,7 +80,7 @@ const ca: LegalContent = {
         blocks: [
           {
             kind: "paragraph",
-            text: "Tots els continguts d'aquest lloc —textos, fotografies, marques, logotips, icones, disseny gràfic, codi font i estructura de navegació— són titularitat del despatx o de tercers que n'han autoritzat l'ús, i estan protegits per la normativa de propietat intel·lectual i industrial.",
+            text: "Tots els continguts d'aquest lloc (textos, fotografies, marques, logotips, icones, disseny gràfic, codi font i estructura de navegació) són titularitat del despatx o de tercers que n'han autoritzat l'ús, i estan protegits per la normativa de propietat intel·lectual i industrial.",
           },
           {
             kind: "paragraph",
@@ -299,7 +299,7 @@ const ca: LegalContent = {
         blocks: [
           {
             kind: "paragraph",
-            text: `El despatx no fa transferències internacionals de dades per iniciativa pròpia. Tanmateix, els proveïdors tecnològics que utilitzem —l'allotjament del lloc web (${legalEntity.hosting.name}, amb seu als Estats Units) i els serveis de correu electrònic i missatgeria— pertanyen a grups empresarials estatunidencs i poden tractar dades fora de l'Espai Econòmic Europeu.`,
+            text: `El despatx no fa transferències internacionals de dades per iniciativa pròpia. Tanmateix, els proveïdors tecnològics que utilitzem (l'allotjament del lloc web, ${legalEntity.hosting.name}, amb seu als Estats Units, i els serveis de correu electrònic i missatgeria) pertanyen a grups empresarials estatunidencs i poden tractar dades fora de l'Espai Econòmic Europeu.`,
           },
           {
             kind: "paragraph",
@@ -352,7 +352,7 @@ const ca: LegalContent = {
           },
           {
             kind: "paragraph",
-            text: "Si considereu que no hem atès correctament la vostra sol·licitud, podeu presentar una reclamació davant l'Agència Espanyola de Protecció de Dades (C/ Jorge Juan, 6, 28001 Madrid — www.aepd.es), autoritat de control competent.",
+            text: "Si considereu que no hem atès correctament la vostra sol·licitud, podeu presentar una reclamació davant l'Agència Espanyola de Protecció de Dades (C/ Jorge Juan, 6, 28001 Madrid; www.aepd.es), autoritat de control competent.",
           },
         ],
       },

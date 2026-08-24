@@ -13,6 +13,14 @@ export type Feature = {
   href?: string;
 };
 
+export type PracticeArea = {
+  icon: IconName;
+  title: string;
+  /** Materias concretas, en formato de lista, en lugar de un párrafo. */
+  points: string[];
+  href?: string;
+};
+
 export type Lawyer = {
   name: string;
   initials: string;
@@ -166,7 +174,7 @@ export type SiteContent = {
   practiceAreas: {
     hero: { eyebrow: string; title: string; subtitle: string };
     intro: SectionIntro;
-    items: Feature[];
+    items: PracticeArea[];
     cta: {
       eyebrow: string;
       title: string;
