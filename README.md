@@ -16,7 +16,7 @@ Trilingüe: **castellano (por defecto)**, inglés y catalán.
 - Tailwind CSS v4 (tokens de diseño en `src/app/globals.css`)
 - `next/font/google`: Cormorant Garamond (titulares) + Inter (cuerpo)
 - Iconos: `lucide-react`
-- i18n propia (sin dependencias): segmento `[locale]` + diccionarios tipados
+- i18n propaia (sin dependencias): segmento `[locale]` + diccionarios tipados
 - ESLint (config de Next) + Prettier
 
 ## Arranque
