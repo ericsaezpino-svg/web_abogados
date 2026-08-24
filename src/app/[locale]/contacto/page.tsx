@@ -5,9 +5,10 @@ import { Clock, Mail, MapPin, Phone } from "lucide-react";
 import ContactChannelCard from "@/components/ContactChannelCard";
 import Container from "@/components/Container";
 import Hero from "@/components/Hero";
+import MapEmbed from "@/components/MapEmbed";
 import SectionHeading from "@/components/SectionHeading";
 import { getContent, site } from "@/lib/content";
-import { buildAlternates, isLocale } from "@/lib/i18n";
+import { buildAlternates, isLocale, localizedHref } from "@/lib/i18n";
 
 const PATH = "/contacto";
 
@@ -128,17 +129,19 @@ export default async function ContactoPage({
               </ul>
             </div>
 
-            {/* Mapa placeholder.
-                TODO: sustituir por el embed de la ubicación real del despacho. */}
-            <div className="aspect-[4/3] w-full overflow-hidden border border-navy-100 bg-white lg:aspect-auto lg:min-h-[28rem]">
-              <iframe
-                src={site.contact.mapEmbedUrl}
-                title={contactInfo.mapLabel}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="h-full w-full border-0 grayscale-[35%]"
-              />
-            </div>
+            {/* El mapa solo se carga si el visitante lo pide: así el sitio no
+                contacta con Google ni fija cookies por defecto. */}
+            <MapEmbed
+              embedUrl={site.contact.mapEmbedUrl}
+              externalUrl={site.contact.mapLinkUrl}
+              frameTitle={contactInfo.mapLabel}
+              heading={contactInfo.map.heading}
+              notice={contactInfo.map.notice}
+              action={contactInfo.map.action}
+              externalLabel={contactInfo.map.externalLabel}
+              cookiesHref={localizedHref(locale, "/politica-de-cookies")}
+              cookiesLabel={contactInfo.map.cookiesLabel}
+            />
           </div>
         </Container>
       </section>

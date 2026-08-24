@@ -11,6 +11,12 @@ const legacyPaths = [
 ];
 
 const nextConfig: NextConfig = {
+  images: {
+    // Next.js 16 exige declarar explícitamente las calidades permitidas
+    // para <Image quality={...}>; sin esto, cualquier valor distinto de 75
+    // se redondea silenciosamente a 75.
+    qualities: [75, 90],
+  },
   async redirects() {
     return [
       // La raíz lleva al idioma por defecto (castellano).

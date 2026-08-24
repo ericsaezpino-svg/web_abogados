@@ -20,23 +20,25 @@ export default function Footer({ locale }: FooterProps) {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div>
             <p className="font-serif text-2xl text-white">
-              Abogados <span className="text-gold">Marina</span>
+              Abogados <span className="text-gold">Marina 204</span>
             </p>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-navy-200">
               {meta.tagline}. {footer.blurb}
             </p>
-            <ul className="mt-6 flex gap-5">
-              {socialLinks.map((item) => (
-                <li key={item.label}>
-                  <a
-                    href={item.href}
-                    className="text-xs tracking-[0.14em] text-navy-200 uppercase transition-colors duration-200 hover:text-gold-300"
-                  >
-                    {item.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            {socialLinks.length > 0 ? (
+              <ul className="mt-6 flex gap-5">
+                {socialLinks.map((item) => (
+                  <li key={item.label}>
+                    <a
+                      href={item.href}
+                      className="text-xs tracking-[0.14em] text-navy-200 uppercase transition-colors duration-200 hover:text-gold-300"
+                    >
+                      {item.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
           </div>
 
           <nav aria-label={footer.navTitle}>
@@ -103,13 +105,12 @@ export default function Footer({ locale }: FooterProps) {
             <ul className="mt-6 space-y-3 text-sm">
               {legalLinks.map((item) => (
                 <li key={item.label}>
-                  {/* TODO: crear las páginas legales reales y actualizar el href. */}
-                  <a
-                    href={item.href}
+                  <Link
+                    href={localizedHref(locale, item.href)}
                     className="transition-colors duration-200 hover:text-gold-300"
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

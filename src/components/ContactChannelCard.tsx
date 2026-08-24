@@ -33,7 +33,9 @@ export default function ContactChannelCard({ channel }: ContactChannelCardProps)
 
       <p className="mt-3 text-base text-slate">{channel.description}</p>
 
-      <p className="mt-6 font-sans text-xs font-semibold tracking-[0.16em] text-gold-700 uppercase">
+      {/* Dato concreto del canal: se muestra tal cual (el email no se pone en
+          mayúsculas, a diferencia de las etiquetas del resto de la interfaz). */}
+      <p className="mt-6 font-sans text-sm font-medium tracking-wide break-all text-gold-700">
         {channel.detail}
       </p>
 

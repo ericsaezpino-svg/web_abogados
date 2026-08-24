@@ -60,13 +60,15 @@ export default async function ColaboradoresPage({
             </div>
           </div>
 
-          {/* Rejilla de logos placeholder.
-              TODO: sustituir los monogramas por los logotipos reales. */}
-          <ul className="mt-16 grid grid-cols-2 gap-px border border-navy-100 bg-navy-100 sm:grid-cols-3">
+          {/* Rejilla de colaboradores.
+              TODO: sustituir los monogramas por retrato o logotipo si los facilitan. */}
+          {/* Bordes colapsados con márgenes negativos: así una fila incompleta
+              no deja celdas vacías coloreadas. */}
+          <ul className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {collaborators.items.map((item) => (
               <li
                 key={item.name}
-                className="group flex flex-col items-center justify-center gap-4 bg-white px-6 py-12 text-center transition-colors duration-300 hover:bg-cream"
+                className="group -mt-px -ml-px flex flex-col items-center justify-center gap-4 border border-navy-100 bg-white px-6 py-12 text-center transition-colors duration-300 hover:bg-cream"
               >
                 <span
                   aria-hidden="true"
@@ -75,9 +77,14 @@ export default async function ColaboradoresPage({
                   {item.initials}
                 </span>
                 <span className="font-serif text-lg text-navy">{item.name}</span>
-                <span className="font-sans text-xs tracking-[0.14em] text-slate uppercase">
-                  {item.kind}
+                <span className="font-sans text-xs tracking-[0.14em] text-gold-700 uppercase">
+                  {item.role}
                 </span>
+                {item.credential ? (
+                  <span className="font-sans text-xs tracking-wide text-slate">
+                    {item.credential}
+                  </span>
+                ) : null}
               </li>
             ))}
           </ul>

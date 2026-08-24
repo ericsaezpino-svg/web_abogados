@@ -38,7 +38,7 @@ export default async function QuienesSomosPage({
     notFound();
   }
 
-  const { about, lawyers } = getContent(locale);
+  const { about, lawyers, ui } = getContent(locale);
 
   return (
     <>
@@ -75,9 +75,14 @@ export default async function QuienesSomosPage({
             title={about.team.title}
             description={about.team.description}
           />
-          <div className="mt-14 space-y-14">
+          <div className="mt-14 space-y-14 [&>article+article]:border-t [&>article+article]:border-navy-100 [&>article+article]:pt-14">
             {lawyers.map((lawyer) => (
-              <LawyerCard key={lawyer.name} lawyer={lawyer} variant="detailed" />
+              <LawyerCard
+                key={lawyer.name}
+                lawyer={lawyer}
+                variant="detailed"
+                ui={ui}
+              />
             ))}
           </div>
         </Container>
@@ -90,6 +95,7 @@ export default async function QuienesSomosPage({
             align="center"
             eyebrow={about.values.eyebrow}
             title={about.values.title}
+            description={about.values.description}
           />
           <ul className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
             {about.values.items.map((item) => {
