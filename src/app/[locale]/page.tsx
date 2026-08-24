@@ -36,7 +36,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
     notFound();
   }
 
-  const { home, lawyers } = getContent(locale);
+  const { home, lawyers, ui } = getContent(locale);
 
   return (
     <>
@@ -106,9 +106,9 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
             title={home.team.title}
             description={home.team.description}
           />
-          <div className="mt-14 grid gap-12 lg:grid-cols-2 lg:gap-16">
+          <div className="mt-14 grid gap-12 sm:grid-cols-2 lg:grid-cols-3 lg:gap-10">
             {lawyers.map((lawyer) => (
-              <LawyerCard key={lawyer.name} lawyer={lawyer} />
+              <LawyerCard key={lawyer.name} lawyer={lawyer} ui={ui} />
             ))}
           </div>
           <div className="mt-12">

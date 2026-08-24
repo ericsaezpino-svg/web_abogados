@@ -11,7 +11,14 @@ export function getContent(locale: Locale): SiteContent {
   return dictionaries[locale];
 }
 
-export { site, socialLinks } from "@/lib/content/site";
+export {
+  legalEntity,
+  site,
+  socialLinks,
+  teamPhotos,
+  TODO_LEGAL,
+} from "@/lib/content/site";
+export { getLegal } from "@/lib/content/legal";
 export type {
   Collaborator,
   ContactChannel,

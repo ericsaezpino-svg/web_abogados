@@ -1,26 +1,11 @@
-import {
-  LOREM_A,
-  LOREM_B,
-  LOREM_C,
-  LOREM_COLLABORATORS,
-  LOREM_D,
-  LOREM_E,
-  LOREM_EYEBROW,
-  LOREM_MEDIUM,
-  LOREM_QUOTE,
-  LOREM_SHORT,
-  LOREM_TITLE_A,
-  LOREM_TITLE_B,
-  LOREM_TITLE_C,
-} from "@/lib/content/lorem";
-import { site } from "@/lib/content/site";
+import { site, teamPhotos } from "@/lib/content/site";
 import type { SiteContent } from "@/lib/content/types";
 
 const ca: SiteContent = {
   meta: {
-    tagline: "Lorem ipsum dolor sit amet consectetur",
+    tagline: "Assessorament jurídic proper, rigorós i especialitzat",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Despatx d'advocades — contingut placeholder pendent de substitució.",
+      "Despatx d'advocats a l'Eixample de Barcelona. Dret civil, penal, laboral, de família, mercantil, administratiu, immobiliari i successori, amb 35 anys d'exercici.",
   },
 
   nav: [
@@ -32,9 +17,9 @@ const ca: SiteContent = {
   ],
 
   legalLinks: [
-    { label: "Avís legal", href: "#" },
-    { label: "Política de privacitat", href: "#" },
-    { label: "Política de cookies", href: "#" },
+    { label: "Avís legal", href: "/aviso-legal" },
+    { label: "Política de privacitat", href: "/politica-de-privacidad" },
+    { label: "Política de cookies", href: "/politica-de-cookies" },
   ],
 
   ui: {
@@ -46,20 +31,30 @@ const ca: SiteContent = {
     closeMenu: "Tancar menú",
     languageLabel: "Idioma",
     contactCta: "Contacte",
+    portraitAlt: "Retrat de",
+    specialtiesLabel: "Àrees d'especialització",
   },
 
   contactInfo: {
-    schedule: "De dilluns a divendres, 9:00 – 19:00",
-    mapLabel: "Mapa placeholder de la ubicació del despatx",
+    schedule: "24 hores, tots els dies de l'any",
+    mapLabel: "Mapa amb la ubicació del despatx al carrer Marina, 204",
     addressLabel: "Adreça",
     phoneLabel: "Telèfon",
     emailLabel: "Correu electrònic",
-    scheduleLabel: "Horari",
+    scheduleLabel: "Disponibilitat",
+    map: {
+      heading: "Mapa de la ubicació",
+      notice:
+        "El mapa el proporciona Google. Si el carregueu, la vostra adreça IP es comunicarà a Google, que hi podrà instal·lar galetes pròpies. Més informació a la nostra",
+      action: "Mostrar el mapa",
+      externalLabel: "Obrir a Google Maps",
+      cookiesLabel: "política de galetes",
+    },
   },
 
   footer: {
     blurb:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor.",
+      "Servei jurídic integral i personalitzat per a particulars, autònoms i empreses.",
     navTitle: "Navegació",
     contactTitle: "Contacte",
     legalTitle: "Legal",
@@ -68,55 +63,90 @@ const ca: SiteContent = {
 
   pageMeta: {
     home: {
-      title: `${site.name} | Lorem ipsum dolor sit amet consectetur`,
+      title: `${site.name} | Advocats a Barcelona`,
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Despatx d'advocades — contingut placeholder pendent de substitució.",
+        "Despatx d'advocats a Barcelona. Assessorament jurídic proper, rigorós i especialitzat, amb l'experiència de 35 anys d'exercici.",
     },
     about: {
       title: "Qui som",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Presentació placeholder del despatx i de les seves advocades.",
+        "Conegueu l'equip d'Abogados Marina 204: tres advocats amb una trajectòria contrastada, units pel rigor, l'ètica i la dedicació.",
     },
     practiceAreas: {
       title: "Àrees jurídiques",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Àrees de pràctica placeholder del despatx.",
+        "Dret civil, penal, laboral, de família, mercantil, administratiu, immobiliari i successori. Descobriu en quines matèries us podem assessorar.",
     },
     collaborators: {
       title: "Col·laboradors",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Xarxa de col·laboradors placeholder del despatx.",
+        "Xarxa de perits, procuradors, notaris i altres professionals que ens permet oferir un servei veritablement complet.",
     },
     contact: {
       title: "Contacte",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dades de contacte i canals placeholder del despatx.",
+        "Carrer Marina, 204, local esquerra, 08013 Barcelona. Telèfon, WhatsApp i correu del despatx. Primera valoració sense compromís.",
     },
   },
 
   lawyers: [
     {
-      name: "Carmen Pino Lucas",
+      name: "María del Carmen Pino Lucas",
       initials: "CP",
-      role: "Advocada — Lorem ipsum dolor",
-      shortBio: LOREM_SHORT,
-      bio: [LOREM_MEDIUM, LOREM_A],
+      role: "Advocada i API",
+      photo: teamPhotos.carmenPino,
+      education: ["Llicenciada en Dret per la Universitat de Barcelona."],
+      specialties: [
+        "Dret Penal",
+        "Dret Matrimonial",
+        "Dret Civil",
+        "Menors",
+        "Jurat",
+        "Mediació civil i matrimonial",
+        "API",
+      ],
+    },
+    {
+      name: "David López Homedes",
+      initials: "DL",
+      role: "Advocat",
+      education: ["Llicenciat en Dret per la Universitat de Barcelona."],
+      specialties: [
+        "Dret Penal",
+        "Dret Matrimonial",
+        "Dret Civil",
+        "Dret Laboral",
+        "Jurat",
+        "Mediació civil i matrimonial",
+        "Estrangeria",
+      ],
     },
     {
       name: "Lorena Vinent Guillem",
       initials: "LV",
-      role: "Advocada — Consectetur adipiscing elit",
-      shortBio: LOREM_SHORT,
-      bio: [LOREM_MEDIUM, LOREM_C],
+      role: "Advocada",
+      photo: teamPhotos.lorenaVinent,
+      education: [
+        "Graduada en Dret per la Universitat Autònoma de Barcelona.",
+        "Màster d'Advocacia i Procura per la Universitat Oberta de Catalunya.",
+      ],
+      specialties: [
+        "Dret Concursal (Llei de la Segona Oportunitat)",
+        "Dret Mercantil",
+        "Dret Penal",
+        "Dret Matrimonial",
+        "Dret Civil",
+        "Estrangeria",
+      ],
     },
   ],
 
   home: {
     hero: {
-      eyebrow: LOREM_EYEBROW,
-      title: site.name,
+      eyebrow: "Despatx d'advocats · Barcelona",
+      title: "Abogados Marina 204",
       subtitle:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim.",
+        "Assessorament jurídic proper, rigorós i especialitzat. Defensem els vostres interessos amb l'experiència de 35 anys d'exercici.",
     },
     heroActions: {
       primary: "Contactar",
@@ -124,57 +154,59 @@ const ca: SiteContent = {
     },
     intro: {
       eyebrow: "El despatx",
-      title: LOREM_TITLE_A,
-      paragraphs: [LOREM_MEDIUM, LOREM_A, LOREM_B],
+      title: "Un servei jurídic integral i personalitzat",
+      paragraphs: [
+        "Abogados Marina és un despatx de referència fundat amb la vocació d'oferir un servei jurídic integral, personalitzat i en el qual posem tots els nostres coneixements perquè sigui d'alta qualitat.",
+        "Som un equip de tres advocats amb àmplia experiència en totes les branques del dret, cosa que ens permet donar una resposta eficaç a qualsevol necessitat legal.",
+        "La nostra manera de treballar combina el rigor tècnic amb un tracte proper i transparent, perquè entenem que darrere de cada assumpte jurídic hi ha una persona.",
+        "Des del nostre despatx acompanyem particulars, autònoms i empreses al llarg de tot el procés, amb solucions adaptades a cada situació i un seguiment de 24 hores tots els dies de l'any.",
+      ],
     },
     sections: {
-      eyebrow: "El despatx",
-      title: "Com podem ajudar-vos",
+      eyebrow: "Us acompanyem",
+      title: "Com us podem ajudar",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
+        "Tant si necessiteu assessorament puntual com una defensa integral, estem a la vostra disposició. Aquestes són les vies per conèixer-nos i treballar junts.",
       items: [
         {
           icon: "users",
           title: "Qui som",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor.",
+          description: "Conegueu l'equip i la filosofia del despatx.",
           href: "/quienes-somos",
         },
         {
           icon: "scale",
           title: "Àrees jurídiques",
-          description:
-            "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.",
+          description: "Descobriu en quines matèries us podem assessorar.",
           href: "/areas-juridicas",
         },
         {
           icon: "handshake",
           title: "Col·laboradors",
-          description:
-            "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
+          description: "El nostre equip de professionals especialitzats.",
           href: "/colaboradores",
         },
         {
           icon: "mail",
           title: "Contacte",
-          description:
-            "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.",
+          description: "Demaneu una primera consulta gratuïta i sense compromís.",
           href: "/contacto",
         },
       ],
     },
     team: {
       eyebrow: "L'equip",
-      title: "Dues advocades, un mateix compromís",
-      description: LOREM_SHORT,
+      title: "Tres advocats, un mateix compromís",
+      description:
+        "Professionals amb una trajectòria contrastada, units pel rigor, l'ètica i la dedicació.",
       cta: "Conèixer el despatx",
     },
     cta: {
       eyebrow: "Contacte",
-      title: LOREM_TITLE_B,
+      title: "Som aquí per ajudar-vos",
       description:
-        "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
-      action: "Sol·licitar cita",
+        "Expliqueu-nos la vostra problemàtica i us oferim una primera valoració del cas, sense compromís i amb total confidencialitat.",
+      action: "Demanar cita",
     },
   },
 
@@ -182,46 +214,52 @@ const ca: SiteContent = {
     hero: {
       eyebrow: "El despatx",
       title: "Qui som",
-      subtitle: LOREM_SHORT,
+      subtitle: "Un despatx d'advocats compromès amb els seus clients.",
     },
     intro: {
       eyebrow: "La nostra trajectòria",
-      title: LOREM_TITLE_C,
-      paragraphs: [LOREM_MEDIUM, LOREM_B],
-      highlight: LOREM_QUOTE,
+      title: "Un despatx pensat des del client",
+      paragraphs: [
+        "Abogados Marina va néixer de la voluntat de crear un despatx diferent: un on el client no és un expedient més, sinó el centre de tot el que fem, buscant el millor per als seus interessos.",
+        "Al llarg de la nostra trajectòria hem acompanyat milers de persones i empreses en els seus processos judicials i extrajudicials, sempre amb el mateix nivell d'exigència i compromís.",
+      ],
+      highlight: "«Darrere de cada assumpte jurídic hi ha una persona.»",
     },
     team: {
       eyebrow: "L'equip",
-      title: "Les advocades",
-      description: LOREM_SHORT,
+      title: "Les persones del despatx",
+      description:
+        "Tres advocats amb formació complementària que treballen de manera coordinada en cada assumpte.",
     },
     values: {
       eyebrow: "Compromís",
       title: "Els nostres valors",
+      description:
+        "Treballem de manera coordinada per donar resposta integral a qualsevol situació jurídica, per complexa que sigui.",
       items: [
         {
-          icon: "shieldCheck",
-          title: "Lorem ipsum",
+          icon: "eye",
+          title: "Transparència",
           description:
-            "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
+            "Mantenim una comunicació clara i honesta en cada fase del procés. Estareu sempre informats de l'estat del vostre assumpte i de les opcions disponibles.",
+        },
+        {
+          icon: "scale",
+          title: "Rigor",
+          description:
+            "Analitzem cada cas amb profunditat i precisió, buscant l'estratègia més sòlida per a la defensa dels vostres interessos.",
         },
         {
           icon: "handshake",
-          title: "Dolor sit amet",
+          title: "Proximitat",
           description:
-            "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.",
+            "Tractem cada client de manera personalitzada. La vostra situació mereix atenció individual, no solucions genèriques.",
         },
         {
-          icon: "clock",
-          title: "Consectetur",
+          icon: "lock",
+          title: "Confidencialitat",
           description:
-            "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.",
-        },
-        {
-          icon: "bookOpen",
-          title: "Adipiscing elit",
-          description:
-            "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.",
+            "Tota la informació que compartiu amb nosaltres es tracta amb absoluta discreció i sota el més estricte secret professional.",
         },
       ],
     },
@@ -231,28 +269,71 @@ const ca: SiteContent = {
     hero: {
       eyebrow: "Especialitats",
       title: "Àrees jurídiques",
-      subtitle: LOREM_SHORT,
+      subtitle:
+        "Abordem cada cas des de l'àrea jurídica que li correspon, amb professionals que coneixen en profunditat la legislació, la jurisprudència i la pràctica processal de cada matèria.",
     },
     intro: {
-      eyebrow: "Com treballem",
-      title: LOREM_TITLE_B,
-      paragraphs: [LOREM_MEDIUM],
+      eyebrow: "Les nostres matèries",
+      title: "En què us podem assessorar",
+      paragraphs: [
+        "A continuació hi trobareu una descripció de les nostres principals àrees d'actuació. Si el vostre assumpte en combina diverses, el despatx treballa de manera coordinada per donar-vos una resposta única.",
+      ],
     },
     items: [
-      { icon: "scale", title: "Dret Civil", description: LOREM_MEDIUM },
-      { icon: "gavel", title: "Dret Penal", description: LOREM_A },
-      { icon: "briefcase", title: "Dret Laboral", description: LOREM_B },
-      { icon: "users", title: "Dret de Família", description: LOREM_C },
-      { icon: "building", title: "Dret Mercantil", description: LOREM_D },
-      { icon: "landmark", title: "Dret Administratiu", description: LOREM_E },
-      { icon: "home", title: "Dret Immobiliari", description: LOREM_SHORT },
-      { icon: "fileText", title: "Dret Successori", description: LOREM_B },
+      {
+        icon: "scale",
+        title: "Dret Civil",
+        description:
+          "El Dret Civil regula les relacions entre particulars en àmbits tan quotidians com els contractes, la propietat, les obligacions o la responsabilitat extracontractual. Assessorem en la redacció i revisió de contractes, reclamacions de deutes, indemnitzacions per danys i perjudicis, i qualsevol conflicte entre particulars que requereixi una solució judicial o extrajudicial.",
+      },
+      {
+        icon: "gavel",
+        title: "Dret Penal",
+        description:
+          "Tant si necessiteu defensa davant d'una acusació com exercir l'acusació particular com a víctima d'un delicte, us acompanyem en totes les fases del procés penal. Treballem amb rigor i confidencialitat en delictes de qualsevol naturalesa: menors, delictes lleus, violència de gènere i jurat.",
+      },
+      {
+        icon: "briefcase",
+        title: "Dret Laboral",
+        description:
+          "Defensem els drets de treballadors i empreses en l'àmbit de les relacions laborals: acomiadaments improcedents, nul·litat d'acomiadament, sancions disciplinàries, reclamacions de salaris, assetjament laboral i negociació col·lectiva. Us assessorem tant en fase de negociació com davant el Jutjat Social.",
+      },
+      {
+        icon: "users",
+        title: "Dret de Família",
+        description:
+          "Els assumptes de família requereixen sensibilitat, discreció, experiència i, sobretot, saber escoltar. Gestionem divorcis i separacions, convenis reguladors, custòdies i règims de visites, pensions d'aliments i compensatòries, modificació de mesures, procediments de filiació i incapacitacions judicials. Prioritzem solucions pactades quan és possible i defensem els vostres interessos en judici quan cal.",
+      },
+      {
+        icon: "building",
+        title: "Dret Mercantil",
+        description:
+          "Assessorem empreses i autònoms en totes les qüestions jurídiques relacionades amb la seva activitat: constitució de societats, redacció de contractes mercantils, fusions i adquisicions, responsabilitat d'administradors, concurs de creditors (Llei de la Segona Oportunitat) i reclamacions entre empreses. El nostre objectiu és protegir el vostre negoci i anticipar-ne els riscos legals.",
+      },
+      {
+        icon: "landmark",
+        title: "Dret Administratiu",
+        description:
+          "Us ajudem a relacionar-vos amb l'Administració en igualtat de condicions: recursos contra sancions, impugnació d'actes administratius, reclamacions de responsabilitat patrimonial, contractació pública i procediments urbanístics. Coneixem els terminis i les vies de recurs per defensar els vostres drets davant el poder públic.",
+      },
+      {
+        icon: "home",
+        title: "Dret Immobiliari",
+        description:
+          "La compravenda d'immobles, els arrendaments, les comunitats de propietaris o les obres irregulars poden generar conflictes complexos. Us assistim en transaccions immobiliàries, contractes d'arrendament, desnonaments, reclamacions a constructores i promotores, liquidació d'impostos i qualsevol litigi relacionat amb béns immobles.",
+      },
+      {
+        icon: "fileText",
+        title: "Dret Successori",
+        description:
+          "Planificar la vostra herència o gestionar a temps un procés successori evita conflictes familiars i pèrdues econòmiques innecessàries. Us assessorem en la redacció i execució de testaments, particions hereditàries, impugnació de testaments, pactes successoris, liquidació d'impostos i acceptació o renúncia d'herències amb deutes. Us acompanyem en tots els tràmits necessaris, també davant de notari, perquè no us sentiu mai sols.",
+      },
     ],
     cta: {
-      eyebrow: "No trobeu el vostre cas?",
+      eyebrow: "No hi trobeu el vostre cas?",
       title: "Expliqueu-nos la vostra situació",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt.",
+        "No us amoïneu. Contacteu amb nosaltres i analitzarem el vostre cas sense compromís. Si no som els més indicats, us orientarem cap al professional adequat.",
       action: "Contactar",
     },
   },
@@ -261,43 +342,83 @@ const ca: SiteContent = {
     hero: {
       eyebrow: "Xarxa professional",
       title: "Col·laboradors",
-      subtitle: LOREM_SHORT,
+      subtitle:
+        "Tots els nostres col·laboradors comparteixen la nostra filosofia de treball: rigor, discreció i orientació al client.",
     },
     intro: {
       eyebrow: "Treball en xarxa",
-      title: LOREM_TITLE_A,
-      paragraphs: [LOREM_MEDIUM],
+      title: "Un servei veritablement complet",
+      paragraphs: [
+        "A Abogados Marina hem construït al llarg dels anys una xarxa de col·laboradors especialitzats que ens permet oferir un servei veritablement complet. Quan un assumpte requereix coneixements tècnics específics, ja sigui en l'àmbit de la pericial, la fiscalitat, la gestió o qualsevol altra disciplina complementària al dret, comptem amb els millors professionals per donar la resposta més completa. I si no els tinguéssim, els aconseguiríem per a vosaltres gràcies als nostres contactes.",
+      ],
     },
-    items: LOREM_COLLABORATORS,
+    // TODO: falta afegir la traductora judicial (nom pendent de confirmar)
+    items: [
+      {
+        name: "Alex Peral Badia",
+        initials: "AP",
+        role: "Psicòleg",
+        credential: "Col·legiat núm. 30514",
+      },
+      {
+        name: "Fernando Lara Plaza",
+        initials: "FL",
+        role: "Perit judicial criminalista",
+        credential: "Col. núm. 1267 AIF",
+      },
+      {
+        name: "Marina Palacios Salvado",
+        initials: "MP",
+        role: "Procuradora",
+        credential: "ICAP núm. 547",
+      },
+      {
+        name: "Juan Carlos Alonso Álvarez",
+        initials: "JA",
+        role: "Notari",
+      },
+      {
+        name: "Antonio Martínez Murillo",
+        initials: "AM",
+        role: "Arquitecte tècnic",
+        credential: "Col. núm. 13080 CATEB",
+      },
+      {
+        name: "Ferran López",
+        initials: "FL",
+        role: "Perit forense odontòleg",
+        credential: "COEC núm. 08003666",
+      },
+    ],
   },
 
   contact: {
     hero: {
       eyebrow: "Parlem-ne",
       title: "Contacte",
-      subtitle: LOREM_SHORT,
+      subtitle:
+        "Abogados Marina és un despatx especialitzat en diferents branques del dret, compromès amb la defensa dels interessos dels seus clients amb rigor, proximitat i transparència.",
     },
     channels: {
       eyebrow: "Com contactar-nos",
       title: "Trieu el canal que preferiu",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.",
+        "Expliqueu-nos la vostra problemàtica per la via que us resulti més còmoda. La primera valoració del cas és gratuïta, sense compromís i amb total confidencialitat.",
       items: [
         {
-          icon: "calendarCheck",
-          title: "Concertar una trucada",
+          icon: "phone",
+          title: "Trucar al despatx",
           description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Reserveu l'hora que us convingui millor.",
-          detail: "Primera consulta de 30 minuts",
-          actionLabel: "Veure disponibilitat",
-          href: site.contact.bookingUrl,
-          external: true,
+            "La via més directa. Us atenem i, si l'assumpte ho requereix, concertem una visita al despatx.",
+          detail: site.contact.phone,
+          actionLabel: "Trucar ara",
+          href: site.contact.phoneHref,
         },
         {
           icon: "messageCircle",
           title: "Contactar per WhatsApp",
           description:
-            "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.",
+            "Si preferiu escriure'ns, podeu enviar-nos un missatge i adjuntar-hi la documentació del vostre cas.",
           detail: site.contact.whatsapp,
           actionLabel: "Obrir WhatsApp",
           href: site.contact.whatsappHref,
@@ -306,18 +427,19 @@ const ca: SiteContent = {
         {
           icon: "mail",
           title: "Enviar un correu",
-          description: LOREM_A,
+          description:
+            "Expliqueu-nos la vostra situació amb detall i us respondrem amb una primera orientació.",
           detail: site.contact.email,
-          actionLabel: "Escriure un correu",
+          actionLabel: "Escriure correu",
           href: `mailto:${site.contact.email}`,
         },
       ],
     },
     details: {
-      eyebrow: "On som",
-      title: "Dades de contacte",
+      eyebrow: "Visiteu-nos",
+      title: "On ens trobareu",
       description:
-        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.",
+        "El nostre despatx és al carrer Marina, a l'Eixample de Barcelona. Us recomanem concertar cita prèvia per telèfon o WhatsApp.",
     },
   },
 };

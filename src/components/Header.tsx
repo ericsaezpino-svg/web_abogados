@@ -87,7 +87,7 @@ export default function Header({ locale, nav, ui }: HeaderProps) {
             aria-label={ui.homeLabel}
           >
             <span className="font-serif text-2xl tracking-wide whitespace-nowrap text-navy navbar:text-[21px] lg:text-[26px]">
-              Abogados <span className="text-gold">Marina</span>
+              Abogados <span className="text-gold">Marina 204</span>
             </span>
             <span className="mt-1 h-px w-0 bg-gold transition-all duration-300 group-hover:w-full" />
           </Link>

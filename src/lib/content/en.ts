@@ -1,26 +1,11 @@
-import {
-  LOREM_A,
-  LOREM_B,
-  LOREM_C,
-  LOREM_COLLABORATORS,
-  LOREM_D,
-  LOREM_E,
-  LOREM_EYEBROW,
-  LOREM_MEDIUM,
-  LOREM_QUOTE,
-  LOREM_SHORT,
-  LOREM_TITLE_A,
-  LOREM_TITLE_B,
-  LOREM_TITLE_C,
-} from "@/lib/content/lorem";
-import { site } from "@/lib/content/site";
+import { site, teamPhotos } from "@/lib/content/site";
 import type { SiteContent } from "@/lib/content/types";
 
 const en: SiteContent = {
   meta: {
-    tagline: "Lorem ipsum dolor sit amet consectetur",
+    tagline: "Approachable, rigorous and specialised legal advice",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Law firm — placeholder content pending replacement.",
+      "Law firm in the Eixample district of Barcelona. Civil, criminal, employment, family, commercial, administrative, real estate and succession law, backed by 35 years of practice.",
   },
 
   nav: [
@@ -32,9 +17,9 @@ const en: SiteContent = {
   ],
 
   legalLinks: [
-    { label: "Legal notice", href: "#" },
-    { label: "Privacy policy", href: "#" },
-    { label: "Cookie policy", href: "#" },
+    { label: "Legal notice", href: "/aviso-legal" },
+    { label: "Privacy policy", href: "/politica-de-privacidad" },
+    { label: "Cookie policy", href: "/politica-de-cookies" },
   ],
 
   ui: {
@@ -46,20 +31,30 @@ const en: SiteContent = {
     closeMenu: "Close menu",
     languageLabel: "Language",
     contactCta: "Contact",
+    portraitAlt: "Portrait of",
+    specialtiesLabel: "Areas of expertise",
   },
 
   contactInfo: {
-    schedule: "Monday to Friday, 9:00 – 19:00",
-    mapLabel: "Placeholder map of the firm's location",
+    schedule: "24 hours a day, every day of the year",
+    mapLabel: "Map showing the firm's location at Calle Marina, 204",
     addressLabel: "Address",
     phoneLabel: "Phone",
     emailLabel: "Email",
-    scheduleLabel: "Opening hours",
+    scheduleLabel: "Availability",
+    map: {
+      heading: "Location map",
+      notice:
+        "The map is provided by Google. If you load it, your IP address will be sent to Google, which may set its own cookies. More information in our",
+      action: "Show the map",
+      externalLabel: "Open in Google Maps",
+      cookiesLabel: "cookie policy",
+    },
   },
 
   footer: {
     blurb:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor.",
+      "Comprehensive, personalised legal services for individuals, self-employed professionals and companies.",
     navTitle: "Navigation",
     contactTitle: "Contact",
     legalTitle: "Legal",
@@ -68,55 +63,90 @@ const en: SiteContent = {
 
   pageMeta: {
     home: {
-      title: `${site.name} | Lorem ipsum dolor sit amet consectetur`,
+      title: `${site.name} | Lawyers in Barcelona`,
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Law firm — placeholder content pending replacement.",
+        "Law firm in Barcelona. Approachable, rigorous and specialised legal advice, backed by 35 years of practice.",
     },
     about: {
       title: "About us",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Placeholder introduction to the firm and its lawyers.",
+        "Meet the team at Abogados Marina 204: three lawyers with a proven track record, united by rigour, ethics and dedication.",
     },
     practiceAreas: {
       title: "Practice areas",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Placeholder practice areas of the firm.",
+        "Civil, criminal, employment, family, commercial, administrative, real estate and succession law. Find out where we can advise you.",
     },
     collaborators: {
       title: "Collaborators",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Placeholder network of collaborators.",
+        "A network of expert witnesses, court agents, notaries and other professionals that lets us offer a truly complete service.",
     },
     contact: {
       title: "Contact",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Placeholder contact details and channels.",
+        "Calle Marina, 204, left-hand unit, 08013 Barcelona. Phone, WhatsApp and email. First assessment with no obligation.",
     },
   },
 
   lawyers: [
     {
-      name: "Carmen Pino Lucas",
+      name: "María del Carmen Pino Lucas",
       initials: "CP",
-      role: "Lawyer — Lorem ipsum dolor",
-      shortBio: LOREM_SHORT,
-      bio: [LOREM_MEDIUM, LOREM_A],
+      role: "Lawyer and registered estate agent (API)",
+      photo: teamPhotos.carmenPino,
+      education: ["Law degree from the University of Barcelona."],
+      specialties: [
+        "Criminal law",
+        "Matrimonial law",
+        "Civil law",
+        "Juvenile law",
+        "Jury trials",
+        "Civil and matrimonial mediation",
+        "Estate agency (API)",
+      ],
+    },
+    {
+      name: "David López Homedes",
+      initials: "DL",
+      role: "Lawyer",
+      education: ["Law degree from the University of Barcelona."],
+      specialties: [
+        "Criminal law",
+        "Matrimonial law",
+        "Civil law",
+        "Employment law",
+        "Jury trials",
+        "Civil and matrimonial mediation",
+        "Immigration law",
+      ],
     },
     {
       name: "Lorena Vinent Guillem",
       initials: "LV",
-      role: "Lawyer — Consectetur adipiscing elit",
-      shortBio: LOREM_SHORT,
-      bio: [LOREM_MEDIUM, LOREM_C],
+      role: "Lawyer",
+      photo: teamPhotos.lorenaVinent,
+      education: [
+        "Law degree from the Autonomous University of Barcelona.",
+        "Master's degree in Legal Practice from the Universitat Oberta de Catalunya.",
+      ],
+      specialties: [
+        "Insolvency law (Second Chance Act)",
+        "Commercial law",
+        "Criminal law",
+        "Matrimonial law",
+        "Civil law",
+        "Immigration law",
+      ],
     },
   ],
 
   home: {
     hero: {
-      eyebrow: LOREM_EYEBROW,
-      title: site.name,
+      eyebrow: "Law firm · Barcelona",
+      title: "Abogados Marina 204",
       subtitle:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim.",
+        "Approachable, rigorous and specialised legal advice. We defend your interests with 35 years of practice behind us.",
     },
     heroActions: {
       primary: "Get in touch",
@@ -124,56 +154,58 @@ const en: SiteContent = {
     },
     intro: {
       eyebrow: "The firm",
-      title: LOREM_TITLE_A,
-      paragraphs: [LOREM_MEDIUM, LOREM_A, LOREM_B],
+      title: "Comprehensive, personalised legal services",
+      paragraphs: [
+        "Abogados Marina is a leading firm founded with a clear purpose: to offer a comprehensive, personalised legal service into which we put everything we know, so that its quality is beyond question.",
+        "We are a team of three lawyers with broad experience across every branch of the law, which allows us to respond effectively to any legal need.",
+        "The way we work combines technical rigour with an approachable, transparent relationship, because we understand that behind every legal matter there is a person.",
+        "From our offices we support individuals, self-employed professionals and companies throughout the entire process, with solutions tailored to each situation and follow-up 24 hours a day, every day of the year.",
+      ],
     },
     sections: {
-      eyebrow: "The firm",
+      eyebrow: "We are here for you",
       title: "How we can help you",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
+        "Whether you need one-off advice or a full defence, we are at your disposal. These are the ways to get to know us and work together.",
       items: [
         {
           icon: "users",
           title: "About us",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor.",
+          description: "Meet the team and the philosophy behind the firm.",
           href: "/quienes-somos",
         },
         {
           icon: "scale",
           title: "Practice areas",
-          description:
-            "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.",
+          description: "Find out which matters we can advise you on.",
           href: "/areas-juridicas",
         },
         {
           icon: "handshake",
           title: "Collaborators",
-          description:
-            "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
+          description: "Our network of specialised professionals.",
           href: "/colaboradores",
         },
         {
           icon: "mail",
           title: "Contact",
-          description:
-            "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.",
+          description: "Request a first consultation, free and with no obligation.",
           href: "/contacto",
         },
       ],
     },
     team: {
       eyebrow: "The team",
-      title: "Two lawyers, one commitment",
-      description: LOREM_SHORT,
+      title: "Three lawyers, one commitment",
+      description:
+        "Professionals with a proven track record, united by rigour, ethics and dedication.",
       cta: "About the firm",
     },
     cta: {
       eyebrow: "Contact",
-      title: LOREM_TITLE_B,
+      title: "We are here to help you",
       description:
-        "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
+        "Tell us about your situation and we will give you a first assessment of your case, with no obligation and in complete confidence.",
       action: "Request an appointment",
     },
   },
@@ -182,46 +214,52 @@ const en: SiteContent = {
     hero: {
       eyebrow: "The firm",
       title: "About us",
-      subtitle: LOREM_SHORT,
+      subtitle: "A law firm committed to its clients.",
     },
     intro: {
       eyebrow: "Our track record",
-      title: LOREM_TITLE_C,
-      paragraphs: [LOREM_MEDIUM, LOREM_B],
-      highlight: LOREM_QUOTE,
+      title: "A firm built around the client",
+      paragraphs: [
+        "Abogados Marina was born of the desire to create a different kind of firm: one where the client is not just another case file, but the centre of everything we do, always seeking what is best for their interests.",
+        "Over the years we have supported thousands of people and companies through judicial and out-of-court proceedings, always with the same level of demand and commitment.",
+      ],
+      highlight: "“Behind every legal matter there is a person.”",
     },
     team: {
       eyebrow: "The team",
-      title: "The lawyers",
-      description: LOREM_SHORT,
+      title: "The people behind the firm",
+      description:
+        "Three lawyers with complementary training who work together on every matter.",
     },
     values: {
       eyebrow: "Commitment",
       title: "Our values",
+      description:
+        "We work in a coordinated way to give a complete answer to any legal situation, however complex it may be.",
       items: [
         {
-          icon: "shieldCheck",
-          title: "Lorem ipsum",
+          icon: "eye",
+          title: "Transparency",
           description:
-            "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
+            "We keep communication clear and honest at every stage of the process. You will always know where your matter stands and what options are open to you.",
+        },
+        {
+          icon: "scale",
+          title: "Rigour",
+          description:
+            "We analyse every case in depth and with precision, looking for the strongest strategy to defend your interests.",
         },
         {
           icon: "handshake",
-          title: "Dolor sit amet",
+          title: "Closeness",
           description:
-            "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.",
+            "We treat every client personally. Your situation deserves individual attention, not off-the-shelf solutions.",
         },
         {
-          icon: "clock",
-          title: "Consectetur",
+          icon: "lock",
+          title: "Confidentiality",
           description:
-            "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.",
-        },
-        {
-          icon: "bookOpen",
-          title: "Adipiscing elit",
-          description:
-            "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.",
+            "All the information you share with us is handled with absolute discretion and under the strictest professional privilege.",
         },
       ],
     },
@@ -231,28 +269,71 @@ const en: SiteContent = {
     hero: {
       eyebrow: "Specialities",
       title: "Practice areas",
-      subtitle: LOREM_SHORT,
+      subtitle:
+        "We approach every case from the area of law it belongs to, with professionals who know the legislation, the case law and the procedural practice of each subject in depth.",
     },
     intro: {
-      eyebrow: "How we work",
-      title: LOREM_TITLE_B,
-      paragraphs: [LOREM_MEDIUM],
+      eyebrow: "Our subjects",
+      title: "Where we can advise you",
+      paragraphs: [
+        "Below you will find a description of our main areas of practice. If your matter spans several of them, the firm works in a coordinated way to give you a single, joined-up answer.",
+      ],
     },
     items: [
-      { icon: "scale", title: "Civil Law", description: LOREM_MEDIUM },
-      { icon: "gavel", title: "Criminal Law", description: LOREM_A },
-      { icon: "briefcase", title: "Employment Law", description: LOREM_B },
-      { icon: "users", title: "Family Law", description: LOREM_C },
-      { icon: "building", title: "Commercial Law", description: LOREM_D },
-      { icon: "landmark", title: "Administrative Law", description: LOREM_E },
-      { icon: "home", title: "Real Estate Law", description: LOREM_SHORT },
-      { icon: "fileText", title: "Succession Law", description: LOREM_B },
+      {
+        icon: "scale",
+        title: "Civil Law",
+        description:
+          "Civil law governs relations between private parties in everyday areas such as contracts, property, obligations and non-contractual liability. We advise on drafting and reviewing contracts, debt claims, compensation for damages, and any dispute between private parties that calls for a judicial or out-of-court solution.",
+      },
+      {
+        icon: "gavel",
+        title: "Criminal Law",
+        description:
+          "Whether you need a defence against an accusation or wish to act as a private prosecutor as the victim of an offence, we accompany you through every stage of criminal proceedings. We work with rigour and confidentiality on offences of any nature: juvenile matters, minor offences, gender violence and jury trials.",
+      },
+      {
+        icon: "briefcase",
+        title: "Employment Law",
+        description:
+          "We defend the rights of employees and companies in employment relations: unfair dismissal, void dismissal, disciplinary sanctions, wage claims, workplace harassment and collective bargaining. We advise you both during negotiations and before the employment courts.",
+      },
+      {
+        icon: "users",
+        title: "Family Law",
+        description:
+          "Family matters call for sensitivity, discretion, experience and, above all, the ability to listen. We handle divorces and separations, settlement agreements, custody and visiting arrangements, maintenance and compensatory payments, modification of measures, filiation proceedings and legal incapacitation. We favour agreed solutions wherever possible and defend your interests in court when necessary.",
+      },
+      {
+        icon: "building",
+        title: "Commercial Law",
+        description:
+          "We advise companies and self-employed professionals on every legal aspect of their activity: incorporating companies, drafting commercial contracts, mergers and acquisitions, directors' liability, insolvency proceedings (Second Chance Act) and disputes between companies. Our aim is to protect your business and anticipate legal risks.",
+      },
+      {
+        icon: "landmark",
+        title: "Administrative Law",
+        description:
+          "We help you deal with public authorities on an equal footing: appeals against penalties, challenges to administrative acts, claims for state liability, public procurement and planning procedures. We know the deadlines and the routes of appeal needed to defend your rights against the public authorities.",
+      },
+      {
+        icon: "home",
+        title: "Real Estate Law",
+        description:
+          "Property sales, leases, homeowners' associations and irregular building works can all give rise to complex disputes. We assist you with property transactions, lease agreements, evictions, claims against builders and developers, tax settlement and any litigation involving real estate.",
+      },
+      {
+        icon: "fileText",
+        title: "Succession Law",
+        description:
+          "Planning your estate or dealing with a succession in good time avoids family conflict and unnecessary financial loss. We advise on drafting and executing wills, division of estates, challenges to wills, succession agreements, tax settlement and the acceptance or renunciation of estates carrying debt. We accompany you through every step, including before the notary, so that you never feel alone.",
+      },
     ],
     cta: {
       eyebrow: "Can't find your case?",
       title: "Tell us about your situation",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt.",
+        "Don't worry. Get in touch and we will look at your case with no obligation. If we are not the right fit, we will point you towards the professional who is.",
       action: "Get in touch",
     },
   },
@@ -261,43 +342,83 @@ const en: SiteContent = {
     hero: {
       eyebrow: "Professional network",
       title: "Collaborators",
-      subtitle: LOREM_SHORT,
+      subtitle:
+        "All our collaborators share our way of working: rigour, discretion and a focus on the client.",
     },
     intro: {
       eyebrow: "Working together",
-      title: LOREM_TITLE_A,
-      paragraphs: [LOREM_MEDIUM],
+      title: "A truly complete service",
+      paragraphs: [
+        "Over the years, Abogados Marina has built a network of specialised collaborators that allows us to offer a truly complete service. When a matter calls for specific technical knowledge — in expert evidence, tax, administration or any other discipline that complements the law — we have the best professionals on hand to give the fullest answer. And if we did not, we would find them for you through our contacts.",
+      ],
     },
-    items: LOREM_COLLABORATORS,
+    // TODO: falta añadir a la traductora judicial (nombre pendiente de confirmar)
+    items: [
+      {
+        name: "Alex Peral Badia",
+        initials: "AP",
+        role: "Psychologist",
+        credential: "Reg. no. 30514",
+      },
+      {
+        name: "Fernando Lara Plaza",
+        initials: "FL",
+        role: "Forensic expert witness",
+        credential: "Reg. no. 1267 AIF",
+      },
+      {
+        name: "Marina Palacios Salvado",
+        initials: "MP",
+        role: "Court agent",
+        credential: "ICAP no. 547",
+      },
+      {
+        name: "Juan Carlos Alonso Álvarez",
+        initials: "JA",
+        role: "Notary",
+      },
+      {
+        name: "Antonio Martínez Murillo",
+        initials: "AM",
+        role: "Building engineer",
+        credential: "Reg. no. 13080 CATEB",
+      },
+      {
+        name: "Ferran López",
+        initials: "FL",
+        role: "Forensic odontology expert witness",
+        credential: "COEC no. 08003666",
+      },
+    ],
   },
 
   contact: {
     hero: {
       eyebrow: "Let's talk",
       title: "Contact",
-      subtitle: LOREM_SHORT,
+      subtitle:
+        "Abogados Marina is a firm specialising in several branches of the law, committed to defending its clients' interests with rigour, closeness and transparency.",
     },
     channels: {
       eyebrow: "How to reach us",
       title: "Choose your preferred channel",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.",
+        "Tell us about your situation in whichever way suits you best. The first assessment of your case is free, with no obligation and in complete confidence.",
       items: [
         {
-          icon: "calendarCheck",
-          title: "Book a call",
+          icon: "phone",
+          title: "Call the firm",
           description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pick whichever slot suits you best.",
-          detail: "First 30-minute consultation",
-          actionLabel: "See availability",
-          href: site.contact.bookingUrl,
-          external: true,
+            "The most direct route. We will speak with you and, if your matter calls for it, arrange a meeting at the office.",
+          detail: site.contact.phone,
+          actionLabel: "Call now",
+          href: site.contact.phoneHref,
         },
         {
           icon: "messageCircle",
           title: "Message us on WhatsApp",
           description:
-            "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.",
+            "If you would rather write, send us a message and attach the documents relating to your case.",
           detail: site.contact.whatsapp,
           actionLabel: "Open WhatsApp",
           href: site.contact.whatsappHref,
@@ -306,7 +427,8 @@ const en: SiteContent = {
         {
           icon: "mail",
           title: "Send an email",
-          description: LOREM_A,
+          description:
+            "Set out your situation in detail and we will reply with an initial assessment.",
           detail: site.contact.email,
           actionLabel: "Write an email",
           href: `mailto:${site.contact.email}`,
@@ -314,10 +436,10 @@ const en: SiteContent = {
       ],
     },
     details: {
-      eyebrow: "Where we are",
-      title: "Contact details",
+      eyebrow: "Visit us",
+      title: "Where to find us",
       description:
-        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.",
+        "Our offices are on Calle Marina, in the Eixample district of Barcelona. We recommend booking an appointment by phone or WhatsApp.",
     },
   },
 };

@@ -17,14 +17,21 @@ export type Lawyer = {
   name: string;
   initials: string;
   role: string;
-  shortBio: string;
-  bio: string[];
+  /** Formación académica: una línea por titulación. */
+  education: string[];
+  /** Materias en las que ejerce, tal y como se listan en la ficha. */
+  specialties: string[];
+  /** Ruta de la foto en `/public`. Sin foto se muestra el monograma. */
+  photo?: string;
 };
 
 export type Collaborator = {
   name: string;
   initials: string;
-  kind: string;
+  /** Profesión del colaborador («Psicólogo», «Procuradora»…). */
+  role: string;
+  /** Número de colegiado, si consta. */
+  credential?: string;
 };
 
 export type ContactChannel = {
@@ -75,6 +82,10 @@ export type SiteContent = {
     closeMenu: string;
     languageLabel: string;
     contactCta: string;
+    /** Prefijo del `alt` de los retratos: «Retrato de {nombre}». */
+    portraitAlt: string;
+    /** Encabezado de la lista de especialidades de cada abogado. */
+    specialtiesLabel: string;
   };
 
   /** Datos de contacto traducibles (los no traducibles están en `site`). */
@@ -85,6 +96,14 @@ export type SiteContent = {
     phoneLabel: string;
     emailLabel: string;
     scheduleLabel: string;
+    /** Textos del mapa, que solo se carga si el visitante lo pide. */
+    map: {
+      heading: string;
+      notice: string;
+      action: string;
+      externalLabel: string;
+      cookiesLabel: string;
+    };
   };
 
   footer: {
@@ -139,6 +158,7 @@ export type SiteContent = {
     values: {
       eyebrow: string;
       title: string;
+      description: string;
       items: Feature[];
     };
   };
