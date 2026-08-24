@@ -68,7 +68,9 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
             <SectionHeading eyebrow={home.intro.eyebrow} title={home.intro.title} />
             <div className="space-y-5 text-base text-slate sm:text-lg">
               {home.intro.paragraphs.map((paragraph, index) => (
-                <p key={index}>{paragraph}</p>
+                <p key={index} className="text-justify hyphens-auto">
+                  {paragraph}
+                </p>
               ))}
             </div>
           </div>
@@ -102,6 +104,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
       <section className="border-y border-navy-100 bg-cream py-20 sm:py-24">
         <Container>
           <SectionHeading
+            align="center"
             eyebrow={home.team.eyebrow}
             title={home.team.title}
             description={home.team.description}

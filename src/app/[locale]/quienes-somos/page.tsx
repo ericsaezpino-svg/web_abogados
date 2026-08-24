@@ -56,7 +56,9 @@ export default async function QuienesSomosPage({
             <div>
               <div className="space-y-5 text-base text-slate sm:text-lg">
                 {about.intro.paragraphs.map((paragraph, index) => (
-                  <p key={index}>{paragraph}</p>
+                  <p key={index} className="text-justify hyphens-auto">
+                    {paragraph}
+                  </p>
                 ))}
               </div>
               <blockquote className="mt-10 border-l-2 border-gold pl-6 font-serif text-xl leading-relaxed text-navy sm:text-2xl">

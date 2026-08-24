@@ -55,11 +55,17 @@ export default function LawyerCard({
         </p>
         <span aria-hidden="true" className="mt-5 h-px w-12 bg-gold" />
 
-        <div className="mt-5 space-y-1 text-base text-slate">
+        <ul className="mt-5 space-y-1.5 text-base text-slate">
           {lawyer.education.map((line) => (
-            <p key={line}>{line}</p>
+            <li key={line} className="flex items-start gap-2">
+              <span
+                aria-hidden="true"
+                className="mt-2.5 h-1 w-1 shrink-0 rounded-full bg-gold"
+              />
+              <span>{line}</span>
+            </li>
           ))}
-        </div>
+        </ul>
 
         {isDetailed ? (
           <div className="mt-6">

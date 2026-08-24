@@ -7,7 +7,7 @@ export const site = {
   /** TODO: sustituir por el dominio real (se usa para canónicas y hreflang). */
   url: "https://www.abogadosmarina204.example",
   contact: {
-    address: "Calle Marina, 204, local izquierda — 08013 Barcelona",
+    address: "Calle Marina, 204, local izquierda, 08013 Barcelona",
     phone: "+34 615 50 48 40",
     phoneHref: "tel:+34615504840",
     email: "abogadosmarina204@gmail.com",

@@ -80,7 +80,7 @@ const es: LegalContent = {
         blocks: [
           {
             kind: "paragraph",
-            text: "Todos los contenidos de este sitio —textos, fotografías, marcas, logotipos, iconos, diseño gráfico, código fuente y estructura de navegación— son titularidad del despacho o de terceros que han autorizado su uso, y están protegidos por la normativa de propiedad intelectual e industrial.",
+            text: "Todos los contenidos de este sitio (textos, fotografías, marcas, logotipos, iconos, diseño gráfico, código fuente y estructura de navegación) son titularidad del despacho o de terceros que han autorizado su uso, y están protegidos por la normativa de propiedad intelectual e industrial.",
           },
           {
             kind: "paragraph",
@@ -299,7 +299,7 @@ const es: LegalContent = {
         blocks: [
           {
             kind: "paragraph",
-            text: `El despacho no realiza transferencias internacionales de datos por iniciativa propia. No obstante, los proveedores tecnológicos que utilizamos —el alojamiento del sitio web (${legalEntity.hosting.name}, con sede en ${legalEntity.hosting.country}) y los servicios de correo electrónico y mensajería— pertenecen a grupos empresariales estadounidenses y pueden tratar datos fuera del Espacio Económico Europeo.`,
+            text: `El despacho no realiza transferencias internacionales de datos por iniciativa propia. No obstante, los proveedores tecnológicos que utilizamos (el alojamiento del sitio web, ${legalEntity.hosting.name}, con sede en ${legalEntity.hosting.country}, y los servicios de correo electrónico y mensajería) pertenecen a grupos empresariales estadounidenses y pueden tratar datos fuera del Espacio Económico Europeo.`,
           },
           {
             kind: "paragraph",
@@ -352,7 +352,7 @@ const es: LegalContent = {
           },
           {
             kind: "paragraph",
-            text: "Si considera que no hemos atendido correctamente su solicitud, puede presentar una reclamación ante la Agencia Española de Protección de Datos (C/ Jorge Juan, 6, 28001 Madrid — www.aepd.es), autoridad de control competente.",
+            text: "Si considera que no hemos atendido correctamente su solicitud, puede presentar una reclamación ante la Agencia Española de Protección de Datos (C/ Jorge Juan, 6, 28001 Madrid; www.aepd.es), autoridad de control competente.",
           },
         ],
       },

@@ -24,7 +24,7 @@ const ca: SiteContent = {
 
   ui: {
     skipToContent: "Anar al contingut",
-    homeLabel: `${site.name} — Inici`,
+    homeLabel: `${site.name} | Inici`,
     mainNavLabel: "Navegació principal",
     mobileNavLabel: "Navegació principal (mòbil)",
     openMenu: "Obrir menú",
@@ -283,50 +283,95 @@ const ca: SiteContent = {
       {
         icon: "scale",
         title: "Dret Civil",
-        description:
-          "El Dret Civil regula les relacions entre particulars en àmbits tan quotidians com els contractes, la propietat, les obligacions o la responsabilitat extracontractual. Assessorem en la redacció i revisió de contractes, reclamacions de deutes, indemnitzacions per danys i perjudicis, i qualsevol conflicte entre particulars que requereixi una solució judicial o extrajudicial.",
+        points: [
+          "Redacció i revisió de contractes",
+          "Reclamació de deutes",
+          "Indemnitzacions per danys i perjudicis",
+          "Conflictes entre particulars, per via judicial o extrajudicial",
+        ],
       },
       {
         icon: "gavel",
         title: "Dret Penal",
-        description:
-          "Tant si necessiteu defensa davant d'una acusació com exercir l'acusació particular com a víctima d'un delicte, us acompanyem en totes les fases del procés penal. Treballem amb rigor i confidencialitat en delictes de qualsevol naturalesa: menors, delictes lleus, violència de gènere i jurat.",
+        points: [
+          "Defensa davant d'una acusació",
+          "Acusació particular com a víctima",
+          "Delictes de menors",
+          "Delictes lleus",
+          "Violència de gènere",
+          "Procediments davant el Tribunal del Jurat",
+        ],
       },
       {
         icon: "briefcase",
         title: "Dret Laboral",
-        description:
-          "Defensem els drets de treballadors i empreses en l'àmbit de les relacions laborals: acomiadaments improcedents, nul·litat d'acomiadament, sancions disciplinàries, reclamacions de salaris, assetjament laboral i negociació col·lectiva. Us assessorem tant en fase de negociació com davant el Jutjat Social.",
+        points: [
+          "Acomiadaments improcedents i nuls",
+          "Sancions disciplinàries",
+          "Reclamació de salaris",
+          "Assetjament laboral",
+          "Negociació col·lectiva",
+          "Procediments davant el Jutjat Social",
+        ],
       },
       {
         icon: "users",
         title: "Dret de Família",
-        description:
-          "Els assumptes de família requereixen sensibilitat, discreció, experiència i, sobretot, saber escoltar. Gestionem divorcis i separacions, convenis reguladors, custòdies i règims de visites, pensions d'aliments i compensatòries, modificació de mesures, procediments de filiació i incapacitacions judicials. Prioritzem solucions pactades quan és possible i defensem els vostres interessos en judici quan cal.",
+        points: [
+          "Divorcis i separacions",
+          "Convenis reguladors",
+          "Custòdia i règim de visites",
+          "Pensions d'aliments i compensatòries",
+          "Modificació de mesures",
+          "Filiació i incapacitació judicial",
+        ],
       },
       {
         icon: "building",
         title: "Dret Mercantil",
-        description:
-          "Assessorem empreses i autònoms en totes les qüestions jurídiques relacionades amb la seva activitat: constitució de societats, redacció de contractes mercantils, fusions i adquisicions, responsabilitat d'administradors, concurs de creditors (Llei de la Segona Oportunitat) i reclamacions entre empreses. El nostre objectiu és protegir el vostre negoci i anticipar-ne els riscos legals.",
+        points: [
+          "Constitució de societats",
+          "Contractes mercantils",
+          "Fusions i adquisicions",
+          "Responsabilitat d'administradors",
+          "Concurs de creditors (Llei de la Segona Oportunitat)",
+          "Reclamacions entre empreses",
+        ],
       },
       {
         icon: "landmark",
         title: "Dret Administratiu",
-        description:
-          "Us ajudem a relacionar-vos amb l'Administració en igualtat de condicions: recursos contra sancions, impugnació d'actes administratius, reclamacions de responsabilitat patrimonial, contractació pública i procediments urbanístics. Coneixem els terminis i les vies de recurs per defensar els vostres drets davant el poder públic.",
+        points: [
+          "Recursos contra sancions",
+          "Impugnació d'actes administratius",
+          "Responsabilitat patrimonial de l'Administració",
+          "Contractació pública",
+          "Procediments urbanístics",
+        ],
       },
       {
         icon: "home",
         title: "Dret Immobiliari",
-        description:
-          "La compravenda d'immobles, els arrendaments, les comunitats de propietaris o les obres irregulars poden generar conflictes complexos. Us assistim en transaccions immobiliàries, contractes d'arrendament, desnonaments, reclamacions a constructores i promotores, liquidació d'impostos i qualsevol litigi relacionat amb béns immobles.",
+        points: [
+          "Compravenda d'immobles",
+          "Contractes d'arrendament",
+          "Desnonaments",
+          "Reclamacions a constructores i promotores",
+          "Liquidació d'impostos",
+          "Litigis sobre béns immobles",
+        ],
       },
       {
         icon: "fileText",
         title: "Dret Successori",
-        description:
-          "Planificar la vostra herència o gestionar a temps un procés successori evita conflictes familiars i pèrdues econòmiques innecessàries. Us assessorem en la redacció i execució de testaments, particions hereditàries, impugnació de testaments, pactes successoris, liquidació d'impostos i acceptació o renúncia d'herències amb deutes. Us acompanyem en tots els tràmits necessaris, també davant de notari, perquè no us sentiu mai sols.",
+        points: [
+          "Redacció i execució de testaments",
+          "Partició hereditària",
+          "Impugnació de testaments",
+          "Pactes successoris",
+          "Liquidació d'impostos",
+          "Acceptació o renúncia d'herència amb deutes",
+        ],
       },
     ],
     cta: {

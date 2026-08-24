@@ -80,7 +80,7 @@ const en: LegalContent = {
         blocks: [
           {
             kind: "paragraph",
-            text: "All the contents of this site — text, photographs, trade marks, logos, icons, graphic design, source code and navigation structure — belong to the firm or to third parties who have authorised their use, and are protected by intellectual and industrial property law.",
+            text: "All the contents of this site (text, photographs, trade marks, logos, icons, graphic design, source code and navigation structure) belong to the firm or to third parties who have authorised their use, and are protected by intellectual and industrial property law.",
           },
           {
             kind: "paragraph",
@@ -299,7 +299,7 @@ const en: LegalContent = {
         blocks: [
           {
             kind: "paragraph",
-            text: `The firm does not carry out international data transfers on its own initiative. However, the technology providers we use — the website hosting (${legalEntity.hosting.name}, based in the United States) and the email and messaging services — belong to US groups and may process data outside the European Economic Area.`,
+            text: `The firm does not carry out international data transfers on its own initiative. However, the technology providers we use (the website hosting, ${legalEntity.hosting.name}, based in the United States, and the email and messaging services) belong to US groups and may process data outside the European Economic Area.`,
           },
           {
             kind: "paragraph",
@@ -352,7 +352,7 @@ const en: LegalContent = {
           },
           {
             kind: "paragraph",
-            text: "If you believe we have not handled your request properly, you may lodge a complaint with the Spanish Data Protection Agency (C/ Jorge Juan, 6, 28001 Madrid — www.aepd.es), the competent supervisory authority.",
+            text: "If you believe we have not handled your request properly, you may lodge a complaint with the Spanish Data Protection Agency (C/ Jorge Juan, 6, 28001 Madrid; www.aepd.es), the competent supervisory authority.",
           },
         ],
       },

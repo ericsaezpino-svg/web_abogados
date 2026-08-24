@@ -24,7 +24,7 @@ const en: SiteContent = {
 
   ui: {
     skipToContent: "Skip to content",
-    homeLabel: `${site.name} — Home`,
+    homeLabel: `${site.name} | Home`,
     mainNavLabel: "Main navigation",
     mobileNavLabel: "Main navigation (mobile)",
     openMenu: "Open menu",
@@ -283,50 +283,95 @@ const en: SiteContent = {
       {
         icon: "scale",
         title: "Civil Law",
-        description:
-          "Civil law governs relations between private parties in everyday areas such as contracts, property, obligations and non-contractual liability. We advise on drafting and reviewing contracts, debt claims, compensation for damages, and any dispute between private parties that calls for a judicial or out-of-court solution.",
+        points: [
+          "Drafting and reviewing contracts",
+          "Debt claims",
+          "Compensation for damages",
+          "Disputes between private parties, in or out of court",
+        ],
       },
       {
         icon: "gavel",
         title: "Criminal Law",
-        description:
-          "Whether you need a defence against an accusation or wish to act as a private prosecutor as the victim of an offence, we accompany you through every stage of criminal proceedings. We work with rigour and confidentiality on offences of any nature: juvenile matters, minor offences, gender violence and jury trials.",
+        points: [
+          "Defence against an accusation",
+          "Private prosecution as a victim",
+          "Juvenile matters",
+          "Minor offences",
+          "Gender violence",
+          "Jury trial proceedings",
+        ],
       },
       {
         icon: "briefcase",
         title: "Employment Law",
-        description:
-          "We defend the rights of employees and companies in employment relations: unfair dismissal, void dismissal, disciplinary sanctions, wage claims, workplace harassment and collective bargaining. We advise you both during negotiations and before the employment courts.",
+        points: [
+          "Unfair and void dismissal",
+          "Disciplinary sanctions",
+          "Wage claims",
+          "Workplace harassment",
+          "Collective bargaining",
+          "Proceedings before the employment courts",
+        ],
       },
       {
         icon: "users",
         title: "Family Law",
-        description:
-          "Family matters call for sensitivity, discretion, experience and, above all, the ability to listen. We handle divorces and separations, settlement agreements, custody and visiting arrangements, maintenance and compensatory payments, modification of measures, filiation proceedings and legal incapacitation. We favour agreed solutions wherever possible and defend your interests in court when necessary.",
+        points: [
+          "Divorces and separations",
+          "Settlement agreements",
+          "Custody and visiting arrangements",
+          "Maintenance and compensatory payments",
+          "Modification of measures",
+          "Filiation and legal incapacitation",
+        ],
       },
       {
         icon: "building",
         title: "Commercial Law",
-        description:
-          "We advise companies and self-employed professionals on every legal aspect of their activity: incorporating companies, drafting commercial contracts, mergers and acquisitions, directors' liability, insolvency proceedings (Second Chance Act) and disputes between companies. Our aim is to protect your business and anticipate legal risks.",
+        points: [
+          "Incorporating companies",
+          "Commercial contracts",
+          "Mergers and acquisitions",
+          "Directors' liability",
+          "Insolvency proceedings (Second Chance Act)",
+          "Disputes between companies",
+        ],
       },
       {
         icon: "landmark",
         title: "Administrative Law",
-        description:
-          "We help you deal with public authorities on an equal footing: appeals against penalties, challenges to administrative acts, claims for state liability, public procurement and planning procedures. We know the deadlines and the routes of appeal needed to defend your rights against the public authorities.",
+        points: [
+          "Appeals against penalties",
+          "Challenges to administrative acts",
+          "Claims for state liability",
+          "Public procurement",
+          "Planning procedures",
+        ],
       },
       {
         icon: "home",
         title: "Real Estate Law",
-        description:
-          "Property sales, leases, homeowners' associations and irregular building works can all give rise to complex disputes. We assist you with property transactions, lease agreements, evictions, claims against builders and developers, tax settlement and any litigation involving real estate.",
+        points: [
+          "Property sales",
+          "Lease agreements",
+          "Evictions",
+          "Claims against builders and developers",
+          "Tax settlement",
+          "Litigation involving real estate",
+        ],
       },
       {
         icon: "fileText",
         title: "Succession Law",
-        description:
-          "Planning your estate or dealing with a succession in good time avoids family conflict and unnecessary financial loss. We advise on drafting and executing wills, division of estates, challenges to wills, succession agreements, tax settlement and the acceptance or renunciation of estates carrying debt. We accompany you through every step, including before the notary, so that you never feel alone.",
+        points: [
+          "Drafting and executing wills",
+          "Division of estates",
+          "Challenges to wills",
+          "Succession agreements",
+          "Tax settlement",
+          "Acceptance or renunciation of estates carrying debt",
+        ],
       },
     ],
     cta: {
@@ -349,7 +394,7 @@ const en: SiteContent = {
       eyebrow: "Working together",
       title: "A truly complete service",
       paragraphs: [
-        "Over the years, Abogados Marina has built a network of specialised collaborators that allows us to offer a truly complete service. When a matter calls for specific technical knowledge — in expert evidence, tax, administration or any other discipline that complements the law — we have the best professionals on hand to give the fullest answer. And if we did not, we would find them for you through our contacts.",
+        "Over the years, Abogados Marina has built a network of specialised collaborators that allows us to offer a truly complete service. When a matter calls for specific technical knowledge, whether in expert evidence, tax, administration or any other discipline that complements the law, we have the best professionals on hand to give the fullest answer. And if we did not, we would find them for you through our contacts.",
       ],
     },
     // TODO: falta añadir a la traductora judicial (nombre pendiente de confirmar)

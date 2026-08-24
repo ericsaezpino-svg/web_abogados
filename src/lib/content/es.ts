@@ -24,7 +24,7 @@ const es: SiteContent = {
 
   ui: {
     skipToContent: "Saltar al contenido",
-    homeLabel: `${site.name} — Inicio`,
+    homeLabel: `${site.name} | Inicio`,
     mainNavLabel: "Navegación principal",
     mobileNavLabel: "Navegación principal (móvil)",
     openMenu: "Abrir menú",
@@ -283,50 +283,95 @@ const es: SiteContent = {
       {
         icon: "scale",
         title: "Derecho Civil",
-        description:
-          "El Derecho Civil regula las relaciones entre particulares en ámbitos tan cotidianos como los contratos, la propiedad, las obligaciones o la responsabilidad extracontractual. Asesoramos en la redacción y revisión de contratos, reclamaciones de deudas, indemnizaciones por daños y perjuicios, y cualquier conflicto entre particulares que requiera solución judicial o extrajudicial.",
+        points: [
+          "Redacción y revisión de contratos",
+          "Reclamación de deudas",
+          "Indemnizaciones por daños y perjuicios",
+          "Conflictos entre particulares, por vía judicial o extrajudicial",
+        ],
       },
       {
         icon: "gavel",
         title: "Derecho Penal",
-        description:
-          "Tanto si necesita defensa ante una acusación como ejercer la acusación particular como víctima de un delito, le acompañamos en todas las fases del proceso penal. Trabajamos con rigor y confidencialidad en delitos de cualquier naturaleza: menores, delitos leves, violencia de género y jurado.",
+        points: [
+          "Defensa ante una acusación",
+          "Acusación particular como víctima",
+          "Delitos de menores",
+          "Delitos leves",
+          "Violencia de género",
+          "Procedimientos ante el Tribunal del Jurado",
+        ],
       },
       {
         icon: "briefcase",
         title: "Derecho Laboral",
-        description:
-          "Defendemos los derechos de trabajadores y empresas en el ámbito de las relaciones laborales: despidos improcedentes, nulidad de despido, sanciones disciplinarias, reclamaciones de salarios, acoso laboral y negociación colectiva. Le asesoramos tanto en fase de negociación como ante el Juzgado de lo Social.",
+        points: [
+          "Despidos improcedentes y nulos",
+          "Sanciones disciplinarias",
+          "Reclamación de salarios",
+          "Acoso laboral",
+          "Negociación colectiva",
+          "Procedimientos ante el Juzgado de lo Social",
+        ],
       },
       {
         icon: "users",
         title: "Derecho de Familia",
-        description:
-          "Los asuntos de familia requieren sensibilidad, discreción, experiencia y, sobre todo, saber escuchar. Gestionamos divorcios y separaciones, convenios reguladores, custodias y regímenes de visitas, pensiones de alimentos y compensatorias, modificación de medidas, procedimientos de filiación e incapacitaciones judiciales. Priorizamos soluciones pactadas cuando es posible y defendemos sus intereses en juicio cuando es necesario.",
+        points: [
+          "Divorcios y separaciones",
+          "Convenios reguladores",
+          "Custodia y régimen de visitas",
+          "Pensiones de alimentos y compensatorias",
+          "Modificación de medidas",
+          "Filiación e incapacitación judicial",
+        ],
       },
       {
         icon: "building",
         title: "Derecho Mercantil",
-        description:
-          "Asesoramos a empresas y autónomos en todas las cuestiones jurídicas relacionadas con su actividad: constitución de sociedades, redacción de contratos mercantiles, fusiones y adquisiciones, responsabilidad de administradores, concurso de acreedores (Ley de la Segunda Oportunidad) y reclamaciones entre empresas. Nuestro objetivo es proteger su negocio y anticipar los riesgos legales.",
+        points: [
+          "Constitución de sociedades",
+          "Contratos mercantiles",
+          "Fusiones y adquisiciones",
+          "Responsabilidad de administradores",
+          "Concurso de acreedores (Ley de la Segunda Oportunidad)",
+          "Reclamaciones entre empresas",
+        ],
       },
       {
         icon: "landmark",
         title: "Derecho Administrativo",
-        description:
-          "Le ayudamos a relacionarse con la Administración en igualdad de condiciones: recursos contra sanciones, impugnación de actos administrativos, reclamaciones de responsabilidad patrimonial, contratación pública y procedimientos urbanísticos. Conocemos los plazos y las vías de recurso para defender sus derechos frente al poder público.",
+        points: [
+          "Recursos contra sanciones",
+          "Impugnación de actos administrativos",
+          "Responsabilidad patrimonial de la Administración",
+          "Contratación pública",
+          "Procedimientos urbanísticos",
+        ],
       },
       {
         icon: "home",
         title: "Derecho Inmobiliario",
-        description:
-          "La compraventa de inmuebles, los arrendamientos, las comunidades de propietarios o las obras irregulares pueden generar conflictos complejos. Le asistimos en transacciones inmobiliarias, contratos de arrendamiento, desahucios, reclamaciones a constructoras y promotoras, liquidación de impuestos y cualquier litigio relacionado con bienes inmuebles.",
+        points: [
+          "Compraventa de inmuebles",
+          "Contratos de arrendamiento",
+          "Desahucios",
+          "Reclamaciones a constructoras y promotoras",
+          "Liquidación de impuestos",
+          "Litigios sobre bienes inmuebles",
+        ],
       },
       {
         icon: "fileText",
         title: "Derecho Sucesorio",
-        description:
-          "Planificar su herencia o gestionar a tiempo un proceso sucesorio evita conflictos familiares y pérdidas económicas innecesarias. Le asesoramos en la redacción y ejecución de testamentos, particiones hereditarias, impugnación de testamentos, pactos sucesorios, liquidación de impuestos y aceptación o renuncia de herencias con deudas. Le acompañamos en todos los trámites necesarios, también ante notario, para que nunca se sienta solo.",
+        points: [
+          "Redacción y ejecución de testamentos",
+          "Partición hereditaria",
+          "Impugnación de testamentos",
+          "Pactos sucesorios",
+          "Liquidación de impuestos",
+          "Aceptación o renuncia de herencia con deudas",
+        ],
       },
     ],
     cta: {

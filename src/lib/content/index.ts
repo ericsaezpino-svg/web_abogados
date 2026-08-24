@@ -26,6 +26,7 @@ export type {
   Lawyer,
   NavItem,
   PageMeta,
+  PracticeArea,
   SectionIntro,
   SiteContent,
 } from "@/lib/content/types";
