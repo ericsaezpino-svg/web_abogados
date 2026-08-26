@@ -94,7 +94,7 @@ export default async function ContactoPage({
 
       <section className="border-t border-navy-100 bg-cream py-20 sm:py-24">
         <Container>
-          <div className="grid gap-16 lg:grid-cols-2 lg:gap-20">
+          <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-20">
             {/* Datos de contacto + mapa */}
             <div>
               <SectionHeading
