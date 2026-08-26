@@ -64,7 +64,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
       {/* Presentación */}
       <section className="bg-cream py-20 sm:py-24">
         <Container>
-          <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-20">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-20">
             <SectionHeading eyebrow={home.intro.eyebrow} title={home.intro.title} />
             <div className="space-y-5 text-base text-slate sm:text-lg">
               {home.intro.paragraphs.map((paragraph, index) => (

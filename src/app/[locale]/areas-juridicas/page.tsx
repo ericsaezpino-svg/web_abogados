@@ -51,7 +51,7 @@ export default async function AreasJuridicasPage({
 
       <section className="py-20 sm:py-24">
         <Container>
-          <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-20">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-20">
             <SectionHeading
               eyebrow={practiceAreas.intro.eyebrow}
               title={practiceAreas.intro.title}

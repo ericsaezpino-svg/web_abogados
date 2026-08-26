@@ -71,86 +71,88 @@ export default function Header({ locale, nav, ui }: HeaderProps) {
   };
 
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white/95 shadow-[0_1px_16px_rgba(27,42,74,0.10)] backdrop-blur"
-          : "bg-cream/95 backdrop-blur"
-      }`}
-    >
-      <Container>
-        <div className="flex h-20 items-center justify-between gap-3 lg:gap-6">
-          <Link
-            href={localizedHref(locale, "/")}
-            onClick={() => setMenuOpen(false)}
-            className="group flex shrink-0 flex-col leading-none"
-            aria-label={ui.homeLabel}
-          >
-            <span className="font-serif text-2xl tracking-wide whitespace-nowrap text-navy navbar:text-[21px] lg:text-[26px]">
-              Abogados <span className="text-gold">Marina 204</span>
-            </span>
-            <span className="mt-1 h-px w-0 bg-gold transition-all duration-300 group-hover:w-full" />
-          </Link>
-
-          {/* Navegación horizontal: tablet en vertical (≥ 704 px) y escritorio */}
-          <nav aria-label={ui.mainNavLabel} className="hidden navbar:block">
-            <ul className="flex items-center gap-3 lg:gap-8">
-              {nav.map((item) => (
-                <li key={item.href} className={linkVisibility(item.href)}>
-                  <Link
-                    href={localizedHref(locale, item.href)}
-                    aria-current={isActive(item.href) ? "page" : undefined}
-                    className="group relative inline-block py-2 font-sans text-[13px] tracking-wide whitespace-nowrap text-navy transition-colors duration-200 hover:text-gold-700 lg:text-sm"
-                  >
-                    {item.label}
-                    <span
-                      aria-hidden="true"
-                      className={`absolute -bottom-0.5 left-0 h-px bg-gold transition-all duration-300 ${
-                        isActive(item.href) ? "w-full" : "w-0 group-hover:w-full"
-                      }`}
-                    />
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-
-          <div className="hidden shrink-0 items-center gap-3 navbar:flex lg:gap-6">
-            <LocaleSwitcher locale={locale} label={ui.languageLabel} />
-            {/* El CTA dorado solo cabe con holgura en escritorio. */}
+    <>
+      <header
+        className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+          scrolled
+            ? "bg-white/95 shadow-[0_1px_16px_rgba(27,42,74,0.10)] backdrop-blur"
+            : "bg-cream/95 backdrop-blur"
+        }`}
+      >
+        <Container>
+          <div className="flex h-20 items-center justify-between gap-3 lg:gap-6">
             <Link
-              href={localizedHref(locale, "/contacto")}
-              aria-current={contactActive ? "page" : undefined}
-              className={`hidden items-center px-4 py-2.5 font-sans text-xs font-medium tracking-[0.12em] whitespace-nowrap uppercase transition-colors duration-200 lg:inline-flex lg:px-6 lg:py-3 ${
-                contactActive
-                  ? "bg-navy text-white hover:bg-navy-800"
-                  : "bg-gold text-white hover:bg-gold-700"
-              }`}
+              href={localizedHref(locale, "/")}
+              onClick={() => setMenuOpen(false)}
+              className="group flex shrink-0 flex-col leading-none"
+              aria-label={ui.homeLabel}
             >
-              {ui.contactCta}
+              <span className="font-serif text-2xl tracking-wide whitespace-nowrap text-navy navbar:text-[21px] lg:text-[26px]">
+                Abogados <span className="text-gold">Marina 204</span>
+              </span>
+              <span className="mt-1 h-px w-0 bg-gold transition-all duration-300 group-hover:w-full" />
             </Link>
-          </div>
 
-          {/* Selector de idioma + hamburguesa (móvil y tablets estrechas) */}
-          <div className="flex items-center gap-3 navbar:hidden">
-            <LocaleSwitcher locale={locale} label={ui.languageLabel} />
-            <button
-              type="button"
-              onClick={() => setMenuOpen((open) => !open)}
-              className="inline-flex h-11 w-11 shrink-0 items-center justify-center text-navy transition-colors duration-200 hover:text-gold-700"
-              aria-expanded={menuOpen}
-              aria-controls="menu-movil"
-              aria-label={menuOpen ? ui.closeMenu : ui.openMenu}
-            >
-              {menuOpen ? (
-                <X className="h-6 w-6" aria-hidden="true" />
-              ) : (
-                <Menu className="h-6 w-6" aria-hidden="true" />
-              )}
-            </button>
+            {/* Navegación horizontal: tablet en vertical (≥ 704 px) y escritorio */}
+            <nav aria-label={ui.mainNavLabel} className="hidden navbar:block">
+              <ul className="flex items-center gap-3 lg:gap-8">
+                {nav.map((item) => (
+                  <li key={item.href} className={linkVisibility(item.href)}>
+                    <Link
+                      href={localizedHref(locale, item.href)}
+                      aria-current={isActive(item.href) ? "page" : undefined}
+                      className="group relative inline-block py-2 font-sans text-[13px] tracking-wide whitespace-nowrap text-navy transition-colors duration-200 hover:text-gold-700 lg:text-sm"
+                    >
+                      {item.label}
+                      <span
+                        aria-hidden="true"
+                        className={`absolute -bottom-0.5 left-0 h-px bg-gold transition-all duration-300 ${
+                          isActive(item.href) ? "w-full" : "w-0 group-hover:w-full"
+                        }`}
+                      />
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+
+            <div className="hidden shrink-0 items-center gap-3 navbar:flex lg:gap-6">
+              <LocaleSwitcher locale={locale} label={ui.languageLabel} />
+              {/* El CTA dorado solo cabe con holgura en escritorio. */}
+              <Link
+                href={localizedHref(locale, "/contacto")}
+                aria-current={contactActive ? "page" : undefined}
+                className={`hidden items-center px-4 py-2.5 font-sans text-xs font-medium tracking-[0.12em] whitespace-nowrap uppercase transition-colors duration-200 lg:inline-flex lg:px-6 lg:py-3 ${
+                  contactActive
+                    ? "bg-navy text-white hover:bg-navy-800"
+                    : "bg-gold text-white hover:bg-gold-700"
+                }`}
+              >
+                {ui.contactCta}
+              </Link>
+            </div>
+
+            {/* Selector de idioma + hamburguesa (móvil y tablets estrechas) */}
+            <div className="flex items-center gap-3 navbar:hidden">
+              <LocaleSwitcher locale={locale} label={ui.languageLabel} />
+              <button
+                type="button"
+                onClick={() => setMenuOpen((open) => !open)}
+                className="inline-flex h-11 w-11 shrink-0 items-center justify-center text-navy transition-colors duration-200 hover:text-gold-700"
+                aria-expanded={menuOpen}
+                aria-controls="menu-movil"
+                aria-label={menuOpen ? ui.closeMenu : ui.openMenu}
+              >
+                {menuOpen ? (
+                  <X className="h-6 w-6" aria-hidden="true" />
+                ) : (
+                  <Menu className="h-6 w-6" aria-hidden="true" />
+                )}
+              </button>
+            </div>
           </div>
-        </div>
-      </Container>
+        </Container>
+      </header>
 
       {/* Drawer móvil */}
       <div
@@ -201,6 +203,6 @@ export default function Header({ locale, nav, ui }: HeaderProps) {
           </div>
         </nav>
       </div>
-    </header>
+    </>
   );
 }

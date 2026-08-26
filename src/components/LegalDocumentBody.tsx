@@ -113,7 +113,7 @@ export default function LegalDocumentBody({ doc }: LegalDocumentBodyProps) {
   return (
     <section className="py-16 sm:py-20">
       <Container>
-        <div className="grid gap-12 lg:grid-cols-[minmax(0,16rem)_minmax(0,1fr)] lg:gap-16">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,16rem)_minmax(0,1fr)] lg:gap-16">
           {/* Índice de apartados: se queda fijo en escritorio. */}
           <nav aria-label={doc.tocTitle} className="lg:sticky lg:top-28 lg:self-start">
             <h2 className="font-sans text-xs font-semibold tracking-[0.18em] text-gold-700 uppercase">

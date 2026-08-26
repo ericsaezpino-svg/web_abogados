@@ -17,7 +17,7 @@ export default function Footer({ locale }: FooterProps) {
       <div aria-hidden="true" className="h-px w-full bg-gold/40" />
 
       <Container className="py-16 sm:py-20">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div>
             <p className="font-serif text-2xl text-white">
               Abogados <span className="text-gold">Marina 204</span>
