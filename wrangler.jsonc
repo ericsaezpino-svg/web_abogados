@@ -1,0 +1,12 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "web-abogados",
+  "compatibility_date": "2025-04-01",
+  // Worker de solo assets: sin "main", no hay código de servidor.
+  // Sirve el export estático de Next.js (`next build` -> carpeta `out/`).
+  "assets": {
+    "directory": "./out",
+    // Rutas desconocidas -> 404.html generado por Next.
+    "not_found_handling": "404-page"
+  }
+}

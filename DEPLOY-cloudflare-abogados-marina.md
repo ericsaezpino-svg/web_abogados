@@ -4,9 +4,10 @@
 > sin base de datos, sin login, sin formulario que se procese en servidor. El
 > contenido solo cambia cuando se edita el código y se vuelve a desplegar.
 >
-> Por eso se despliega como **export estático** (`output: "export"` de Next.js)
-> sobre **Cloudflare Pages**, sin el adaptador OpenNext ni Workers. Menos piezas,
-> plan gratuito, y el HTML se sirve ya hecho desde el borde.
+> Por eso se despliega como **export estático** (`output: "export"` de Next.js),
+> sin el adaptador OpenNext. El proyecto en Cloudflare es un **Worker de solo
+> assets** (`wrangler.jsonc` sin `main`): no ejecuta código de servidor, solo
+> sirve la carpeta `out/` desde el borde. Plan gratuito.
 >
 > Si en el futuro hiciera falta algo dinámico (envío real de formularios, blog con
 > contenido que se actualiza solo…), se añade una función suelta entonces; no hay
@@ -26,8 +27,12 @@ Ya aplicado en el repo:
 | `src/lib/content/site.ts` | `url` → `https://www.abogadosmarina204.com` (canónicas, hreflang, sitemap). |
 | `src/app/sitemap.ts` | Genera `sitemap.xml` con las 8 rutas × 3 idiomas y `hreflang`. |
 | `src/app/robots.ts` | Genera `robots.txt` (todo indexable) y apunta al sitemap. |
+| `wrangler.jsonc` | Worker de solo assets: `assets.directory: "./out"`, `not_found_handling: "404-page"`. Sin `main`. |
+| `.gitignore` | Añadido `.wrangler/`. |
 
-`package.json` no necesita cambios: `npm run build` ya produce `out/`.
+`package.json` no necesita cambios: `npm run build` ya produce `out/`, y el
+despliegue lo hace `npx wrangler deploy` (Wrangler lo aporta el entorno de build
+de Cloudflare).
 
 ### `next dev` en local
 
@@ -63,40 +68,39 @@ provisiona solo.
 
 ---
 
-## 4. Crear el proyecto en Cloudflare Pages
+## 4. Configuración de build del Worker (Workers Builds)
 
-**Workers & Pages → Create → Pages → Connect to Git** y elegir este repositorio.
+El proyecto ya existe en **Workers & Pages** como Worker conectado a Git. Hay que
+corregir los comandos de build, que quedaron con la vía OpenNext descartada.
 
-Configuración de build:
+En el Worker → **Settings → Build**:
 
 | Campo | Valor |
 | --- | --- |
-| Framework preset | **Next.js (Static HTML Export)** |
 | Build command | `npx next build` |
-| Build output directory | `out` |
-| Production branch | `main` |
+| Deploy command | `npx wrangler deploy` |
+| Branch (producción) | `main` |
+| Root directory | *(vacío)* |
 
-Variables de entorno de build: ninguna necesaria.
+Guardar y lanzar **Retry deployment** (o hacer un push a `main`).
 
-Guardar y desplegar. A partir de ahí:
+Flujo de trabajo: cada push a `main` despliega producción; los Pull Requests
+generan una preview con URL propia (*Preview URLs* en la pestaña Settings).
 
-- Cada push a `main` → despliegue de **producción**.
-- Cada push a `develop` o cada Pull Request → **URL de preview** propia.
-
-Flujo de trabajo: trabajar en `develop`, revisar en la URL de preview, y merge a
-`main` cuando esté validado.
+> Si prefirieras **Cloudflare Pages** en vez de Worker: crear un proyecto nuevo
+> con *Pages → Connect to Git*, build `npx next build`, output `out`. El
+> `wrangler.jsonc` sobra en ese caso pero no molesta.
 
 ---
 
 ## 5. Conectar el dominio
 
-En el proyecto de Pages → **Custom domains → Set up a custom domain**:
+En el Worker → pestaña **Domains → Add → Custom domain**:
 
 1. Añadir `www.abogadosmarina204.com` (dominio canónico del sitio).
-2. Añadir también `abogadosmarina204.com` y, cuando lo pida, configurar la
-   **redirección del apex a `www`** (Cloudflare ofrece hacerlo automáticamente con
-   una Redirect Rule; si no, crear una regla `abogadosmarina204.com/*` →
-   `https://www.abogadosmarina204.com/$1`, 301).
+2. Para el apex `abogadosmarina204.com`, crear en la zona una **Redirect Rule**:
+   `abogadosmarina204.com/*` → `https://www.abogadosmarina204.com/${1}` (301,
+   *Preserve query string*).
 
 Los registros DNS los crea Cloudflare solo al estar el dominio en la cuenta.
 
@@ -132,7 +136,8 @@ Pendientes de contenido, no de despliegue (ver `TODO_LEGAL` en `site.ts`):
 - [ ] `npm run build` termina sin errores y genera `out/`.
 - [ ] `npx serve out` — navegación, `sitemap.xml`, `robots.txt` y 404 correctos.
 - [ ] Dominio `abogadosmarina204.com` registrado en Cloudflare.
-- [ ] Proyecto de Pages conectado al repo (build `npx next build`, salida `out`).
-- [ ] Primer deploy de producción OK en la URL `*.pages.dev`.
+- [ ] Worker: `Settings → Build` con build `npx next build` y deploy `npx wrangler deploy`.
+- [ ] Cambios commiteados y en `main`; build verde en *Deployments*.
+- [ ] Primer deploy de producción OK en la URL `*.workers.dev`.
 - [ ] `www.abogadosmarina204.com` conectado + apex redirige a `www`.
 - [ ] Search Console verificado y sitemap enviado.
