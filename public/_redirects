@@ -1,0 +1,14 @@
+# Cloudflare Pages — redirecciones en el borde.
+# Sustituyen a los redirects de next.config, que no funcionan con output: export.
+
+# La raíz lleva al idioma por defecto (castellano).
+/                  /es                   302
+
+# Rutas sin prefijo de idioma (enlaces antiguos) -> castellano.
+/quienes-somos          /es/quienes-somos          302
+/areas-juridicas        /es/areas-juridicas        302
+/colaboradores          /es/colaboradores          302
+/contacto               /es/contacto               302
+/aviso-legal            /es/aviso-legal            302
+/politica-de-privacidad /es/politica-de-privacidad 302
+/politica-de-cookies    /es/politica-de-cookies    302

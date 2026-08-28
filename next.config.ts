@@ -1,33 +1,18 @@
 import type { NextConfig } from "next";
 
-import { defaultLocale } from "./src/lib/i18n";
-
-/** Rutas que existían antes de añadir los idiomas: se mantienen vivas. */
-const legacyPaths = [
-  "/quienes-somos",
-  "/areas-juridicas",
-  "/colaboradores",
-  "/contacto",
-];
-
 const nextConfig: NextConfig = {
+  // Export estático: `next build` genera la web como HTML/CSS/JS en `out/`,
+  // sin runtime de servidor. Se despliega en Cloudflare Pages.
+  output: "export",
   images: {
-    // Next.js 16 exige declarar explícitamente las calidades permitidas
-    // para <Image quality={...}>; sin esto, cualquier valor distinto de 75
-    // se redondea silenciosamente a 75.
-    qualities: [75, 90],
+    // El optimizador de imágenes de Next necesita un servidor; en export
+    // estático se sirven las imágenes tal cual. Las fotos del equipo se
+    // optimizan a mano antes de subirlas.
+    unoptimized: true,
   },
-  async redirects() {
-    return [
-      // La raíz lleva al idioma por defecto (castellano).
-      { source: "/", destination: `/${defaultLocale}`, permanent: false },
-      ...legacyPaths.map((path) => ({
-        source: path,
-        destination: `/${defaultLocale}${path}`,
-        permanent: false,
-      })),
-    ];
-  },
+  // Nota: `redirects()` de next.config NO funciona con `output: "export"`.
+  // Los redirects de producción (`/` -> `/es` y rutas antiguas) viven en
+  // `public/_redirects`, que Cloudflare Pages aplica en el borde.
 };
 
 export default nextConfig;
