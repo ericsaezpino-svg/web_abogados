@@ -4,8 +4,8 @@
  */
 export const site = {
   name: "Abogados Marina 204",
-  /** TODO: sustituir por el dominio real (se usa para canónicas y hreflang). */
-  url: "https://www.abogadosmarina204.example",
+  /** Dominio de producción (se usa para canónicas, hreflang y sitemap). */
+  url: "https://www.abogadosmarina204.com",
   contact: {
     address: "Calle Marina, 204, local izquierda, 08013 Barcelona",
     phone: "+34 615 50 48 40",
