@@ -100,8 +100,6 @@ const en: SiteContent = {
         "Criminal law",
         "Matrimonial law",
         "Civil law",
-        "Juvenile law",
-        "Jury trials",
         "Civil and matrimonial mediation",
         "Estate agency (API)",
       ],
@@ -110,13 +108,13 @@ const en: SiteContent = {
       name: "David López Homedes",
       initials: "DL",
       role: "Lawyer",
+      photo: teamPhotos.davidLopez,
       education: ["Law degree from the University of Barcelona."],
       specialties: [
         "Criminal law",
         "Matrimonial law",
         "Civil law",
         "Employment law",
-        "Jury trials",
         "Civil and matrimonial mediation",
         "Immigration law",
       ],
@@ -131,7 +129,6 @@ const en: SiteContent = {
         "Master's degree in Legal Practice from the Universitat Oberta de Catalunya.",
       ],
       specialties: [
-        "Insolvency law (Second Chance Act)",
         "Commercial law",
         "Criminal law",
         "Matrimonial law",
@@ -156,7 +153,7 @@ const en: SiteContent = {
       eyebrow: "The firm",
       title: "Comprehensive, personalised legal services",
       paragraphs: [
-        "Abogados Marina is a leading firm founded with a clear purpose: to offer a comprehensive, personalised legal service into which we put everything we know, so that its quality is beyond question.",
+        "Abogados Marina 204 is a leading firm founded with a clear purpose: to offer a comprehensive, personalised legal service into which we put everything we know, so that its quality is beyond question.",
         "We are a team of three lawyers with broad experience across every branch of the law, which allows us to respond effectively to any legal need.",
         "The way we work combines technical rigour with an approachable, transparent relationship, because we understand that behind every legal matter there is a person.",
         "From our offices we support individuals, self-employed professionals and companies throughout the entire process, with solutions tailored to each situation and follow-up 24 hours a day, every day of the year.",
@@ -220,7 +217,7 @@ const en: SiteContent = {
       eyebrow: "Our track record",
       title: "A firm built around the client",
       paragraphs: [
-        "Abogados Marina was born of the desire to create a different kind of firm: one where the client is not just another case file, but the centre of everything we do, always seeking what is best for their interests.",
+        "Abogados Marina 204 was born of the desire to create a different kind of firm: one where the client is not just another case file, but the centre of everything we do, always seeking what is best for their interests.",
         "Over the years we have supported thousands of people and companies through judicial and out-of-court proceedings, always with the same level of demand and commitment.",
       ],
       highlight: "“Behind every legal matter there is a person.”",
@@ -298,7 +295,7 @@ const en: SiteContent = {
           "Private prosecution as a victim",
           "Juvenile matters",
           "Minor offences",
-          "Gender violence",
+          "Gender violence (men and women)",
           "Jury trial proceedings",
         ],
       },
@@ -311,6 +308,7 @@ const en: SiteContent = {
           "Wage claims",
           "Workplace harassment",
           "Collective bargaining",
+          "Retirement pensions and work disability claims",
           "Proceedings before the employment courts",
         ],
       },
@@ -323,7 +321,7 @@ const en: SiteContent = {
           "Custody and visiting arrangements",
           "Maintenance and compensatory payments",
           "Modification of measures",
-          "Filiation and legal incapacitation",
+          "Filiation and support measures for people with disabilities",
         ],
       },
       {
@@ -355,8 +353,10 @@ const en: SiteContent = {
         points: [
           "Property sales",
           "Lease agreements",
+          "Homeowners' associations",
           "Evictions",
           "Claims against builders and developers",
+          "Unlicensed works and building defects",
           "Tax settlement",
           "Litigation involving real estate",
         ],
@@ -371,6 +371,17 @@ const en: SiteContent = {
           "Succession agreements",
           "Tax settlement",
           "Acceptance or renunciation of estates carrying debt",
+        ],
+      },
+      {
+        icon: "globe",
+        title: "Immigration Law",
+        points: [
+          "Residence and work permits",
+          "Family reunification",
+          "Renewal and amendment of residence and work permits",
+          "Expulsion proceedings",
+          "Spanish nationality",
         ],
       },
     ],
@@ -394,10 +405,10 @@ const en: SiteContent = {
       eyebrow: "Working together",
       title: "A truly complete service",
       paragraphs: [
-        "Over the years, Abogados Marina has built a network of specialised collaborators that allows us to offer a truly complete service. When a matter calls for specific technical knowledge, whether in expert evidence, tax, administration or any other discipline that complements the law, we have the best professionals on hand to give the fullest answer. And if we did not, we would find them for you through our contacts.",
+        "Over the years, Abogados Marina 204 has built a network of specialised collaborators that allows us to offer a truly complete service. When a matter calls for specific technical knowledge, whether in expert evidence, tax, administration or any other discipline that complements the law, we have the best professionals on hand to give the fullest answer. And if we did not, we would find them for you through our contacts.",
       ],
     },
-    // TODO: falta añadir a la traductora judicial (nombre pendiente de confirmar)
+    // TODO: ¿hay una traductora judicial además de Peter Lazar? (pendiente de confirmar)
     items: [
       {
         name: "Alex Peral Badia",
@@ -416,6 +427,11 @@ const en: SiteContent = {
         initials: "MP",
         role: "Court agent",
         credential: "ICAP no. 547",
+      },
+      {
+        name: "Peter Lazar",
+        initials: "PL",
+        role: "Interpreter",
       },
       {
         name: "Juan Carlos Alonso Álvarez",
@@ -442,7 +458,7 @@ const en: SiteContent = {
       eyebrow: "Let's talk",
       title: "Contact",
       subtitle:
-        "Abogados Marina is a firm specialising in several branches of the law, committed to defending its clients' interests with rigour, closeness and transparency.",
+        "Abogados Marina 204 is a firm specialising in several branches of the law, committed to defending its clients' interests with rigour, closeness and transparency.",
     },
     channels: {
       eyebrow: "How to reach us",
