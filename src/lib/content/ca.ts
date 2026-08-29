@@ -100,8 +100,6 @@ const ca: SiteContent = {
         "Dret Penal",
         "Dret Matrimonial",
         "Dret Civil",
-        "Menors",
-        "Jurat",
         "Mediació civil i matrimonial",
         "API",
       ],
@@ -110,13 +108,13 @@ const ca: SiteContent = {
       name: "David López Homedes",
       initials: "DL",
       role: "Advocat",
+      photo: teamPhotos.davidLopez,
       education: ["Llicenciat en Dret per la Universitat de Barcelona."],
       specialties: [
         "Dret Penal",
         "Dret Matrimonial",
         "Dret Civil",
         "Dret Laboral",
-        "Jurat",
         "Mediació civil i matrimonial",
         "Estrangeria",
       ],
@@ -131,7 +129,6 @@ const ca: SiteContent = {
         "Màster d'Advocacia i Procura per la Universitat Oberta de Catalunya.",
       ],
       specialties: [
-        "Dret Concursal (Llei de la Segona Oportunitat)",
         "Dret Mercantil",
         "Dret Penal",
         "Dret Matrimonial",
@@ -156,7 +153,7 @@ const ca: SiteContent = {
       eyebrow: "El despatx",
       title: "Un servei jurídic integral i personalitzat",
       paragraphs: [
-        "Abogados Marina és un despatx de referència fundat amb la vocació d'oferir un servei jurídic integral, personalitzat i en el qual posem tots els nostres coneixements perquè sigui d'alta qualitat.",
+        "Abogados Marina 204 és un despatx de referència fundat amb la vocació d'oferir un servei jurídic integral, personalitzat i en el qual posem tots els nostres coneixements perquè sigui d'alta qualitat.",
         "Som un equip de tres advocats amb àmplia experiència en totes les branques del dret, cosa que ens permet donar una resposta eficaç a qualsevol necessitat legal.",
         "La nostra manera de treballar combina el rigor tècnic amb un tracte proper i transparent, perquè entenem que darrere de cada assumpte jurídic hi ha una persona.",
         "Des del nostre despatx acompanyem particulars, autònoms i empreses al llarg de tot el procés, amb solucions adaptades a cada situació i un seguiment de 24 hores tots els dies de l'any.",
@@ -220,7 +217,7 @@ const ca: SiteContent = {
       eyebrow: "La nostra trajectòria",
       title: "Un despatx pensat des del client",
       paragraphs: [
-        "Abogados Marina va néixer de la voluntat de crear un despatx diferent: un on el client no és un expedient més, sinó el centre de tot el que fem, buscant el millor per als seus interessos.",
+        "Abogados Marina 204 va néixer de la voluntat de crear un despatx diferent: un on el client no és un expedient més, sinó el centre de tot el que fem, buscant el millor per als seus interessos.",
         "Al llarg de la nostra trajectòria hem acompanyat milers de persones i empreses en els seus processos judicials i extrajudicials, sempre amb el mateix nivell d'exigència i compromís.",
       ],
       highlight: "«Darrere de cada assumpte jurídic hi ha una persona.»",
@@ -298,7 +295,7 @@ const ca: SiteContent = {
           "Acusació particular com a víctima",
           "Delictes de menors",
           "Delictes lleus",
-          "Violència de gènere",
+          "Violència de gènere (home i dona)",
           "Procediments davant el Tribunal del Jurat",
         ],
       },
@@ -311,6 +308,7 @@ const ca: SiteContent = {
           "Reclamació de salaris",
           "Assetjament laboral",
           "Negociació col·lectiva",
+          "Pensions de jubilació i incapacitats laborals",
           "Procediments davant el Jutjat Social",
         ],
       },
@@ -323,7 +321,7 @@ const ca: SiteContent = {
           "Custòdia i règim de visites",
           "Pensions d'aliments i compensatòries",
           "Modificació de mesures",
-          "Filiació i incapacitació judicial",
+          "Filiació i mesures de suport a persones amb discapacitat",
         ],
       },
       {
@@ -355,8 +353,10 @@ const ca: SiteContent = {
         points: [
           "Compravenda d'immobles",
           "Contractes d'arrendament",
+          "Comunitats de propietaris",
           "Desnonaments",
           "Reclamacions a constructores i promotores",
+          "Obres irregulars i defectes constructius",
           "Liquidació d'impostos",
           "Litigis sobre béns immobles",
         ],
@@ -371,6 +371,17 @@ const ca: SiteContent = {
           "Pactes successoris",
           "Liquidació d'impostos",
           "Acceptació o renúncia d'herència amb deutes",
+        ],
+      },
+      {
+        icon: "globe",
+        title: "Dret d'Estrangeria",
+        points: [
+          "Permisos de residència i treball",
+          "Reagrupament familiar",
+          "Renovació i modificació de permisos de residència i treball",
+          "Procediments d'expulsió",
+          "Nacionalitat espanyola",
         ],
       },
     ],
@@ -394,10 +405,10 @@ const ca: SiteContent = {
       eyebrow: "Treball en xarxa",
       title: "Un servei veritablement complet",
       paragraphs: [
-        "A Abogados Marina hem construït al llarg dels anys una xarxa de col·laboradors especialitzats que ens permet oferir un servei veritablement complet. Quan un assumpte requereix coneixements tècnics específics, ja sigui en l'àmbit de la pericial, la fiscalitat, la gestió o qualsevol altra disciplina complementària al dret, comptem amb els millors professionals per donar la resposta més completa. I si no els tinguéssim, els aconseguiríem per a vosaltres gràcies als nostres contactes.",
+        "A Abogados Marina 204 hem construït al llarg dels anys una xarxa de col·laboradors especialitzats que ens permet oferir un servei veritablement complet. Quan un assumpte requereix coneixements tècnics específics, ja sigui en l'àmbit de la pericial, la fiscalitat, la gestió o qualsevol altra disciplina complementària al dret, comptem amb els millors professionals per donar la resposta més completa. I si no els tinguéssim, els aconseguiríem per a vosaltres gràcies als nostres contactes.",
       ],
     },
-    // TODO: falta afegir la traductora judicial (nom pendent de confirmar)
+    // TODO: hi ha una traductora judicial a més de Peter Lazar? (pendent de confirmar)
     items: [
       {
         name: "Alex Peral Badia",
@@ -416,6 +427,11 @@ const ca: SiteContent = {
         initials: "MP",
         role: "Procuradora",
         credential: "ICAP núm. 547",
+      },
+      {
+        name: "Peter Lazar",
+        initials: "PL",
+        role: "Intèrpret",
       },
       {
         name: "Juan Carlos Alonso Álvarez",
@@ -442,7 +458,7 @@ const ca: SiteContent = {
       eyebrow: "Parlem-ne",
       title: "Contacte",
       subtitle:
-        "Abogados Marina és un despatx especialitzat en diferents branques del dret, compromès amb la defensa dels interessos dels seus clients amb rigor, proximitat i transparència.",
+        "Abogados Marina 204 és un despatx especialitzat en diferents branques del dret, compromès amb la defensa dels interessos dels seus clients amb rigor, proximitat i transparència.",
     },
     channels: {
       eyebrow: "Com contactar-nos",

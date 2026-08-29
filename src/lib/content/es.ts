@@ -100,8 +100,6 @@ const es: SiteContent = {
         "Derecho Penal",
         "Derecho Matrimonial",
         "Derecho Civil",
-        "Menores",
-        "Jurado",
         "Mediación civil y matrimonial",
         "API",
       ],
@@ -110,13 +108,13 @@ const es: SiteContent = {
       name: "David López Homedes",
       initials: "DL",
       role: "Abogado",
+      photo: teamPhotos.davidLopez,
       education: ["Licenciado en Derecho por la Universidad de Barcelona."],
       specialties: [
         "Derecho Penal",
         "Derecho Matrimonial",
         "Derecho Civil",
         "Derecho Laboral",
-        "Jurado",
         "Mediación civil y matrimonial",
         "Extranjería",
       ],
@@ -131,7 +129,6 @@ const es: SiteContent = {
         "Máster de Abogacía y Procura por la Universitat Oberta de Catalunya.",
       ],
       specialties: [
-        "Derecho Concursal (Ley de la Segunda Oportunidad)",
         "Derecho Mercantil",
         "Derecho Penal",
         "Derecho Matrimonial",
@@ -156,7 +153,7 @@ const es: SiteContent = {
       eyebrow: "El despacho",
       title: "Un servicio jurídico integral y personalizado",
       paragraphs: [
-        "Abogados Marina es un despacho de referencia fundado con la vocación de ofrecer un servicio jurídico integral, personalizado y en el que ponemos todos nuestros conocimientos para que sea de alta calidad.",
+        "Abogados Marina 204 es un despacho de referencia fundado con la vocación de ofrecer un servicio jurídico integral, personalizado y en el que ponemos todos nuestros conocimientos para que sea de alta calidad.",
         "Somos un equipo de tres abogados con amplia experiencia en todas las ramas del derecho, lo que nos permite dar una respuesta eficaz a cualquier necesidad legal.",
         "Nuestra forma de trabajar combina el rigor técnico con un trato cercano y transparente, porque entendemos que detrás de cada asunto jurídico hay una persona.",
         "Desde nuestro despacho, acompañamos a particulares, autónomos y empresas a lo largo de todo el proceso, con soluciones adaptadas a cada situación y un seguimiento de 24 horas todos los días del año.",
@@ -220,7 +217,7 @@ const es: SiteContent = {
       eyebrow: "Nuestra trayectoria",
       title: "Un despacho pensado desde el cliente",
       paragraphs: [
-        "Abogados Marina nació de la voluntad de crear un despacho diferente: uno donde el cliente no es un expediente más, sino el centro de todo lo que hacemos, buscando lo mejor para sus intereses.",
+        "Abogados Marina 204 nació de la voluntad de crear un despacho diferente: uno donde el cliente no es un expediente más, sino el centro de todo lo que hacemos, buscando lo mejor para sus intereses.",
         "A lo largo de nuestra trayectoria, hemos acompañado a miles de personas y empresas en sus procesos judiciales y extrajudiciales, siempre con el mismo nivel de exigencia y compromiso.",
       ],
       highlight: "«Detrás de cada asunto jurídico hay una persona.»",
@@ -298,7 +295,7 @@ const es: SiteContent = {
           "Acusación particular como víctima",
           "Delitos de menores",
           "Delitos leves",
-          "Violencia de género",
+          "Violencia de género (hombre y mujer)",
           "Procedimientos ante el Tribunal del Jurado",
         ],
       },
@@ -311,6 +308,7 @@ const es: SiteContent = {
           "Reclamación de salarios",
           "Acoso laboral",
           "Negociación colectiva",
+          "Pensiones de jubilación e incapacidades laborales",
           "Procedimientos ante el Juzgado de lo Social",
         ],
       },
@@ -323,7 +321,7 @@ const es: SiteContent = {
           "Custodia y régimen de visitas",
           "Pensiones de alimentos y compensatorias",
           "Modificación de medidas",
-          "Filiación e incapacitación judicial",
+          "Filiación y medidas de apoyo a personas con discapacidad",
         ],
       },
       {
@@ -355,8 +353,10 @@ const es: SiteContent = {
         points: [
           "Compraventa de inmuebles",
           "Contratos de arrendamiento",
+          "Comunidades de propietarios",
           "Desahucios",
           "Reclamaciones a constructoras y promotoras",
+          "Obras irregulares y defectos constructivos",
           "Liquidación de impuestos",
           "Litigios sobre bienes inmuebles",
         ],
@@ -371,6 +371,17 @@ const es: SiteContent = {
           "Pactos sucesorios",
           "Liquidación de impuestos",
           "Aceptación o renuncia de herencia con deudas",
+        ],
+      },
+      {
+        icon: "globe",
+        title: "Derecho de Extranjería",
+        points: [
+          "Permisos de residencia y trabajo",
+          "Reagrupación familiar",
+          "Renovación y modificación de permisos de residencia y trabajo",
+          "Procedimientos de expulsión",
+          "Nacionalidad española",
         ],
       },
     ],
@@ -394,10 +405,10 @@ const es: SiteContent = {
       eyebrow: "Trabajo en red",
       title: "Un servicio verdaderamente completo",
       paragraphs: [
-        "En Abogados Marina hemos construido a lo largo de los años una red de colaboradores especializados que nos permite ofrecer un servicio verdaderamente completo. Cuando un asunto requiere conocimientos técnicos específicos, ya sea en el ámbito de la pericial, la fiscalidad, la gestión o cualquier otra disciplina complementaria al derecho, contamos con los mejores profesionales para dar la respuesta más completa. Y si no los tuviéramos, los conseguiríamos para usted gracias a nuestros contactos.",
+        "En Abogados Marina 204 hemos construido a lo largo de los años una red de colaboradores especializados que nos permite ofrecer un servicio verdaderamente completo. Cuando un asunto requiere conocimientos técnicos específicos, ya sea en el ámbito de la pericial, la fiscalidad, la gestión o cualquier otra disciplina complementaria al derecho, contamos con los mejores profesionales para dar la respuesta más completa. Y si no los tuviéramos, los conseguiríamos para usted gracias a nuestros contactos.",
       ],
     },
-    // TODO: falta añadir a la traductora judicial (nombre pendiente de confirmar)
+    // TODO: ¿hay una traductora judicial además de Peter Lazar? (pendiente de confirmar)
     items: [
       {
         name: "Alex Peral Badia",
@@ -416,6 +427,11 @@ const es: SiteContent = {
         initials: "MP",
         role: "Procuradora",
         credential: "ICAP núm. 547",
+      },
+      {
+        name: "Peter Lazar",
+        initials: "PL",
+        role: "Intérprete",
       },
       {
         name: "Juan Carlos Alonso Álvarez",
@@ -442,7 +458,7 @@ const es: SiteContent = {
       eyebrow: "Hablemos",
       title: "Contacto",
       subtitle:
-        "Abogados Marina es un despacho especializado en diferentes ramas del derecho, comprometido con la defensa de los intereses de sus clientes con rigor, cercanía y transparencia.",
+        "Abogados Marina 204 es un despacho especializado en diferentes ramas del derecho, comprometido con la defensa de los intereses de sus clientes con rigor, cercanía y transparencia.",
     },
     channels: {
       eyebrow: "Cómo contactarnos",

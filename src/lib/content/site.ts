@@ -81,11 +81,10 @@ export const legalEntity = {
 
 /**
  * Fotografías del equipo (en `/public`), comunes a los tres idiomas.
- * TODO: falta la fotografía de David López Homedes; hasta entonces su ficha
- * muestra el monograma.
  */
 export const teamPhotos = {
   carmenPino: "/equipo/carmen-pino-lucas.jpg",
+  davidLopez: "/equipo/david-lopez-homedes.jpg",
   lorenaVinent: "/equipo/lorena-vinent-guillem.jpg",
 } as const;
 
