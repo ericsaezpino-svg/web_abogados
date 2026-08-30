@@ -70,6 +70,18 @@
     color: #fff;
   }
 
+  /*
+   * Oculta el badge "Powered by Netlify" (HUD del plan gratuito), que Netlify
+   * inyecta como un <iframe> position:fixed y no se puede desactivar desde el
+   * panel. El iframe lleva id `nl-badge-frame` y title "Powered by Netlify";
+   * sus estilos son inline sin !important, así que esto los gana.
+   */
+  #nl-badge-frame,
+  #nl-hud-frame,
+  iframe[title="Powered by Netlify"] {
+    display: none !important;
+  }
+
   :focus-visible {
     outline: 2px solid var(--color-gold);
     outline-offset: 3px;
