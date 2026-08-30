@@ -1,4 +1,4 @@
-# Cloudflare Pages — cabeceras por ruta.
+# Cabeceras por ruta (formato Netlify / Cloudflare Pages, idéntico).
 
 # Assets con hash en el nombre: cacheables para siempre.
 /_next/static/*

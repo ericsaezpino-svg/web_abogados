@@ -1,0 +1,13 @@
+# Configuración de build para Netlify.
+# La web es un export estático de Next.js: `next build` (con output: "export"
+# en next.config.ts) genera la carpeta `out/`, que es lo que se publica.
+
+[build]
+  command = "npx next build"
+  publish = "out"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Los redirects y las cabeceras viven en public/_redirects y public/_headers
+# (formato nativo de Netlify); next build los copia a out/ y Netlify los aplica.
