@@ -1,4 +1,4 @@
-# Cloudflare Pages — redirecciones en el borde.
+# Redirecciones (formato Netlify / Cloudflare Pages, idéntico).
 # Sustituyen a los redirects de next.config, que no funcionan con output: export.
 
 # La raíz lleva al idioma por defecto (castellano).
